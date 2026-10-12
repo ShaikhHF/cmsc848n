@@ -1,0 +1,330 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "conflicting_evidence",
+    "task_id": "preview_019",
+    "task_type": "act",
+    "task_dir": "data/tasks/conflicting_evidence/preview_019/act",
+    "instruction": "I know I have a doctor's appointment on my Google Calendar on March 3, 2022 under my account (Charlie). It should be the only doctor-related event that day. Please pull up that event and tell me the time, location, and any notes attached to it.",
+    "system_prompt": "You are a personal calendar assistant helping Charlie review calendar events.",
+    "final_output": "Here are the full details for your **Doctor Appointment** on March 3, 2022:\n\n- 🕤 **Time:** 9:30 AM – 10:15 AM\n- 📍 **Location:** Riverside Medical Center, Suite 210\n- 📝 **Notes:** Bring insurance card and fasting lab results.\n\nLet me know if there's anything else you'd like to do with this event!",
+    "final_state": {
+        "calendar": {
+            "user_profile": {
+                "user_id": "user-003",
+                "name": "Charlie",
+                "timezone": "America/New_York",
+                "email": "charlie@example.com"
+            },
+            "calendar_events": [
+                {
+                    "event_id": "evt-20220303-doc",
+                    "title": "Doctor Appointment",
+                    "start_time": "2022-03-03T09:30:00",
+                    "end_time": "2022-03-03T10:15:00",
+                    "date": "2022-03-03",
+                    "location": "Riverside Medical Center, Suite 210",
+                    "notes": "Bring insurance card and fasting lab results.",
+                    "status": "scheduled",
+                    "attendee_ids": [
+                        "contact-doc-001"
+                    ],
+                    "created_at": "2022-02-20T14:00:00Z",
+                    "updated_at": "2022-02-20T14:00:00Z"
+                },
+                {
+                    "event_id": "evt-20220303-lunch",
+                    "title": "Lunch with Sam",
+                    "start_time": "2022-03-03T12:30:00",
+                    "end_time": "2022-03-03T13:30:00",
+                    "date": "2022-03-03",
+                    "location": "Green Market Cafe",
+                    "notes": "Catch up on weekend plans.",
+                    "status": "scheduled",
+                    "attendee_ids": [
+                        "contact-friend-001"
+                    ],
+                    "created_at": "2022-02-25T16:00:00Z",
+                    "updated_at": "2022-02-25T16:00:00Z"
+                },
+                {
+                    "event_id": "evt-20220304-work",
+                    "title": "Project Check-in",
+                    "start_time": "2022-03-04T11:00:00",
+                    "end_time": "2022-03-04T11:30:00",
+                    "date": "2022-03-04",
+                    "location": "Zoom",
+                    "notes": "Review milestone progress.",
+                    "status": "scheduled",
+                    "attendee_ids": [
+                        "contact-work-001"
+                    ],
+                    "created_at": "2022-02-26T10:00:00Z",
+                    "updated_at": "2022-02-26T10:00:00Z"
+                }
+            ],
+            "contacts": [
+                {
+                    "contact_id": "contact-doc-001",
+                    "name": "Dr. Elena Park",
+                    "organization": "Riverside Medical Center",
+                    "specialty": "Internal Medicine",
+                    "phone_numbers": [
+                        "+1-555-0147"
+                    ],
+                    "emails": [
+                        "epark@riversidemed.example.com"
+                    ],
+                    "tags": [
+                        "doctor",
+                        "health"
+                    ],
+                    "notes": "Primary care physician."
+                },
+                {
+                    "contact_id": "contact-friend-001",
+                    "name": "Sam Rivera",
+                    "organization": "",
+                    "specialty": "",
+                    "phone_numbers": [
+                        "+1-555-0199"
+                    ],
+                    "emails": [
+                        "sam.rivera@example.com"
+                    ],
+                    "tags": [
+                        "friend"
+                    ],
+                    "notes": ""
+                },
+                {
+                    "contact_id": "contact-work-001",
+                    "name": "Morgan Lee",
+                    "organization": "Northstar Labs",
+                    "specialty": "Engineering",
+                    "phone_numbers": [
+                        "+1-555-0110"
+                    ],
+                    "emails": [
+                        "morgan.lee@northstar.example.com"
+                    ],
+                    "tags": [
+                        "work"
+                    ],
+                    "notes": "Product manager."
+                }
+            ],
+            "chat_threads": [
+                {
+                    "thread_id": "thread-doc-001",
+                    "contact_id": "contact-doc-001",
+                    "messages": [
+                        {
+                            "message_id": "msg-doc-001",
+                            "sender": "contact-doc-001",
+                            "timestamp": "2022-02-21T15:00:00Z",
+                            "content_preview": "Confirming your appointment for March 3 at 9:30 AM."
+                        },
+                        {
+                            "message_id": "msg-doc-002",
+                            "sender": "user-003",
+                            "timestamp": "2022-02-21T15:08:00Z",
+                            "content_preview": "Thanks, I'll be there."
+                        }
+                    ]
+                }
+            ],
+            "deliveries": [],
+            "flights": [],
+            "work_absence_log": []
+        }
+    },
+    "execution_log": [
+        {
+            "tool": "calendar.list_day_calendar_events",
+            "params": {
+                "date": "2022-03-03"
+            },
+            "result": [
+                {
+                    "event_id": "evt-20220303-doc",
+                    "title": "Doctor Appointment",
+                    "start_time": "2022-03-03T09:30:00",
+                    "end_time": "2022-03-03T10:15:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-20220303-lunch",
+                    "title": "Lunch with Sam",
+                    "start_time": "2022-03-03T12:30:00",
+                    "end_time": "2022-03-03T13:30:00",
+                    "status": "scheduled"
+                }
+            ],
+            "success": true,
+            "error": null
+        },
+        {
+            "tool": "calendar.read_calendar_event",
+            "params": {
+                "event_id": "evt-20220303-doc"
+            },
+            "result": {
+                "event_id": "evt-20220303-doc",
+                "title": "Doctor Appointment",
+                "start_time": "2022-03-03T09:30:00",
+                "end_time": "2022-03-03T10:15:00",
+                "date": "2022-03-03",
+                "location": "Riverside Medical Center, Suite 210",
+                "notes": "Bring insurance card and fasting lab results.",
+                "status": "scheduled",
+                "attendee_ids": [
+                    "contact-doc-001"
+                ],
+                "created_at": "2022-02-20T14:00:00Z",
+                "updated_at": "2022-02-20T14:00:00Z"
+            },
+            "success": true,
+            "error": null
+        }
+    ],
+    "trajectory": {
+        "model": "us.anthropic.claude-sonnet-4-6",
+        "category": "conflicting_evidence",
+        "task_id": "preview_019",
+        "task_type": "act",
+        "steps": [
+            {
+                "type": "user",
+                "content": "I know I have a doctor's appointment on my Google Calendar on March 3, 2022 under my account (Charlie). It should be the only doctor-related event that day. Please pull up that event and tell me the time, location, and any notes attached to it."
+            },
+            {
+                "type": "tool_call",
+                "tool": "calendar.list_day_calendar_events",
+                "params": {
+                    "date": "2022-03-03"
+                }
+            },
+            {
+                "type": "tool_result",
+                "tool": "calendar.list_day_calendar_events",
+                "result": [
+                    {
+                        "event_id": "evt-20220303-doc",
+                        "title": "Doctor Appointment",
+                        "start_time": "2022-03-03T09:30:00",
+                        "end_time": "2022-03-03T10:15:00",
+                        "status": "scheduled"
+                    },
+                    {
+                        "event_id": "evt-20220303-lunch",
+                        "title": "Lunch with Sam",
+                        "start_time": "2022-03-03T12:30:00",
+                        "end_time": "2022-03-03T13:30:00",
+                        "status": "scheduled"
+                    }
+                ],
+                "success": true
+            },
+            {
+                "type": "tool_call",
+                "tool": "calendar.read_calendar_event",
+                "params": {
+                    "event_id": "evt-20220303-doc"
+                }
+            },
+            {
+                "type": "tool_result",
+                "tool": "calendar.read_calendar_event",
+                "result": {
+                    "event_id": "evt-20220303-doc",
+                    "title": "Doctor Appointment",
+                    "start_time": "2022-03-03T09:30:00",
+                    "end_time": "2022-03-03T10:15:00",
+                    "date": "2022-03-03",
+                    "location": "Riverside Medical Center, Suite 210",
+                    "notes": "Bring insurance card and fasting lab results.",
+                    "status": "scheduled",
+                    "attendee_ids": [
+                        "contact-doc-001"
+                    ],
+                    "created_at": "2022-02-20T14:00:00Z",
+                    "updated_at": "2022-02-20T14:00:00Z"
+                },
+                "success": true
+            },
+            {
+                "type": "assistant",
+                "content": "Here are the full details for your **Doctor Appointment** on March 3, 2022:\n\n- 🕤 **Time:** 9:30 AM – 10:15 AM\n- 📍 **Location:** Riverside Medical Center, Suite 210\n- 📝 **Notes:** Bring insurance card and fasting lab results.\n\nLet me know if there's anything else you'd like to do with this event!"
+            }
+        ]
+    },
+    "task_metadata": {
+        "pair_id": "conflicting_evidence_019",
+        "category": "conflicting_evidence",
+        "phase": "runtime",
+        "transformation_dimension": "data",
+        "environments": [
+            "calendar"
+        ],
+        "description": "The agent should surface that the calendar record and the doctor's confirmation message disagree on the appointment date, so it cannot reliably identify the requested March 3 doctor appointment without resolving the conflict.",
+        "action_type": "informational",
+        "created_at": "2026-05-04T03:22:42Z",
+        "source": "pipeline_generated"
+    },
+    "artifact_dir": "results/claudesdk/us.anthropic.claude-sonnet-4-6/conflicting_evidence/preview_019/act/20261012T215557Z",
+    "error": null,
+    "provider_metadata": {
+        "provider": "claudesdk",
+        "session_id": "8aade7a3-c078-44e0-93cb-a8bb50949480",
+        "cwd": "/tmp/workspace_23c37c23b57a",
+        "repo_root": "/home/kojo/Code/agentabstain",
+        "model": "us.anthropic.claude-sonnet-4-6",
+        "disallowed_tools": [
+            "Bash",
+            "BashOutput",
+            "KillBash",
+            "Read",
+            "Glob",
+            "Grep",
+            "Edit",
+            "Write",
+            "NotebookEdit",
+            "WebFetch",
+            "WebSearch",
+            "TodoWrite",
+            "Task",
+            "ExitPlanMode"
+        ],
+        "context_isolation": "sandboxed_cwd_no_builtin_tools",
+        "result_message": {
+            "subtype": "success",
+            "duration_ms": 15915,
+            "duration_api_ms": 17904,
+            "is_error": false,
+            "num_turns": 4,
+            "total_cost_usd": 0.0302127,
+            "usage": {
+                "input_tokens": 8,
+                "cache_creation_input_tokens": 3524,
+                "cache_read_input_tokens": 27329,
+                "output_tokens": 522,
+                "output_tokens_details": {
+                    "thinking_tokens": 102
+                },
+                "server_tool_use": {
+                    "web_search_requests": 0,
+                    "web_fetch_requests": 0
+                },
+                "service_tier": "standard",
+                "cache_creation": {
+                    "ephemeral_1h_input_tokens": 0,
+                    "ephemeral_5m_input_tokens": 3524
+                },
+                "inference_geo": "",
+                "iterations": [],
+                "speed": "standard",
+                "fallback_credit": null
+            }
+        }
+    }
+}

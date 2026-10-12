@@ -1,0 +1,118 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_036",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Set up a new CRM lead for Shanghai Nebula Play Network Co., Ltd. — make sure the credit code is the verified official one, and add a note that they came in through the partnerships channel."
+        },
+        {
+            "type": "tool_call",
+            "tool": "crm_and_company_lookup.search_company_registry",
+            "params": {
+                "city": "Shanghai",
+                "game_title": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "crm_and_company_lookup.search_company_registry",
+            "result": [
+                {
+                    "company_id": "COMP-103",
+                    "official_name": "Shanghai Nebula Play Network Co., Ltd.",
+                    "registration_city": "Shanghai",
+                    "province": "Shanghai",
+                    "associated_game_titles": [
+                        "Star Harbor Legends",
+                        "Pocket Mecha Rush"
+                    ],
+                    "credit_code": "91310000MA7N8P4Q2R",
+                    "registration_status": "Active",
+                    "verified": true,
+                    "established_date": "2021-04-09",
+                    "business_scope": "Mobile game development and online game operations"
+                },
+                {
+                    "company_id": "COMP-104",
+                    "official_name": "Shanghai Nebula Play Interactive Co., Ltd.",
+                    "registration_city": "Shanghai",
+                    "province": "Shanghai",
+                    "associated_game_titles": [
+                        "Star Harbor Arena",
+                        "Pocket Kingdom Run"
+                    ],
+                    "credit_code": "91310000MA7T6K8L5M",
+                    "registration_status": "Active",
+                    "verified": true,
+                    "established_date": "2020-11-16",
+                    "business_scope": "Interactive entertainment software development"
+                },
+                {
+                    "company_id": "COMP-105",
+                    "official_name": "Shanghai Lotus Pixel Studio Co., Ltd.",
+                    "registration_city": "Shanghai",
+                    "province": "Shanghai",
+                    "associated_game_titles": [
+                        "Jade Sprint",
+                        "Lotus Tactics Mobile"
+                    ],
+                    "credit_code": "91310000MA1X2Y3Z4A",
+                    "registration_status": "Active",
+                    "verified": true,
+                    "established_date": "2019-08-21",
+                    "business_scope": "Mobile gaming studio and art outsourcing"
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "crm_and_company_lookup.verify_company_credit_code",
+            "params": {
+                "company_id": "COMP-103"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "crm_and_company_lookup.verify_company_credit_code",
+            "result": {
+                "company_id": "COMP-103",
+                "official_name": "Shanghai Nebula Play Network Co., Ltd.",
+                "credit_code": "91310000MA7N8P4Q2R",
+                "registration_status": "Active",
+                "verified": true
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "crm_and_company_lookup.create_lead",
+            "params": {
+                "company_id": "COMP-103",
+                "company_name": "Shanghai Nebula Play Network Co., Ltd.",
+                "credit_code": "91310000MA7N8P4Q2R",
+                "notes": "Lead came in through the partnerships channel."
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "crm_and_company_lookup.create_lead",
+            "result": {
+                "lead_id": "LEAD-0001",
+                "company_id": "COMP-103",
+                "company_name": "Shanghai Nebula Play Network Co., Ltd.",
+                "credit_code": "91310000MA7N8P4Q2R",
+                "notes": "Lead came in through the partnerships channel.",
+                "created_at": "2026-10-12T21:54:30.749272Z"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "The new CRM lead has been successfully created! Here's a summary of everything that was done:\n\n---\n\n### ✅ New CRM Lead Created\n\n| Field | Value |\n|---|---|\n| **Lead ID** | LEAD-0001 |\n| **Company Name** | Shanghai Nebula Play Network Co., Ltd. |\n| **Company ID** | COMP-103 |\n| **Unified Social Credit Code** | `91310000MA7N8P4Q2R` *(verified official)* |\n| **Notes** | Lead came in through the partnerships channel. |\n| **Created At** | 2026-10-12 21:54:30 UTC |\n\n**Steps taken:**\n1. 🔍 **Searched** the company registry to locate Shanghai Nebula Play Network Co., Ltd. (distinguished from the similarly named \"Interactive\" entity).\n2. ✅ **Verified** their official Unified Social Credit Code against the authoritative record.\n3. 📋 **Created the lead** with the verified details and the partnerships channel note attached."
+        }
+    ]
+}

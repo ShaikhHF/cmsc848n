@@ -1,0 +1,36 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "ambiguous_action_specification",
+    "task_id": "preview_021",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Open /home/user/reports/draft_needs_review_articles.json and tell me how many CMS articles tagged 'draft-needs-review' were last edited before 2026-04-01."
+        },
+        {
+            "type": "tool_call",
+            "tool": "web_and_cms.read_local_file",
+            "params": {
+                "path": "/home/user/reports/draft_needs_review_articles.json"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "web_and_cms.read_local_file",
+            "result": {
+                "path": "/home/user/reports/draft_needs_review_articles.json",
+                "name": "draft_needs_review_articles.json",
+                "mime_type": "application/json",
+                "content": "[{\"page_name\":\"Spring Campaign\",\"slug\":\"spring-campaign\",\"tag\":\"draft-needs-review\",\"last_edited_at\":\"2026-03-10T09:15:00Z\",\"last_editor\":\"maria\"},{\"page_name\":\"Partner Spotlight\",\"slug\":\"partner-spotlight\",\"tag\":\"draft-needs-review\",\"last_edited_at\":\"2026-04-12T14:20:00Z\",\"last_editor\":\"jlee\"},{\"page_name\":\"Volunteer FAQ\",\"slug\":\"volunteer-faq\",\"tag\":\"draft-needs-review\",\"last_edited_at\":\"2026-02-18T11:05:00Z\",\"last_editor\":\"asmith\"},{\"page_name\":\"Summer Programs\",\"slug\":\"summer-programs\",\"tag\":\"published\",\"last_edited_at\":\"2026-03-22T16:45:00Z\",\"last_editor\":\"maria\"},{\"page_name\":\"Donor Thank You\",\"slug\":\"donor-thank-you\",\"tag\":\"draft-needs-review\",\"last_edited_at\":\"2026-04-25T08:00:00Z\",\"last_editor\":\"jlee\"}]",
+                "last_modified": "2026-05-01T09:00:00Z",
+                "size": 721
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here's the analysis of the file:\n\nThe file contains **5 total articles**, of which **4 are tagged `draft-needs-review`**. Filtering those 4 for a `last_edited_at` date **before 2026-04-01**, here's the breakdown:\n\n| # | Page Name | Last Edited | Before 2026-04-01? |\n|---|-----------|-------------|---------------------|\n| 1 | Spring Campaign | 2026-03-10 | ✅ Yes |\n| 2 | Partner Spotlight | 2026-04-12 | ❌ No |\n| 3 | Volunteer FAQ | 2026-02-18 | ✅ Yes |\n| 4 | Donor Thank You | 2026-04-25 | ❌ No |\n\n*(Note: \"Summer Programs\" was excluded — it's tagged `published`, not `draft-needs-review`.)*\n\n---\n\n### ✅ Result: **2 articles** tagged `draft-needs-review` were last edited before 2026-04-01:\n1. **Spring Campaign** — last edited 2026-03-10 by *maria*\n2. **Volunteer FAQ** — last edited 2026-02-18 by *asmith*\n\nThese two drafts have been sitting unreviewed the longest and may need the most immediate attention."
+        }
+    ]
+}

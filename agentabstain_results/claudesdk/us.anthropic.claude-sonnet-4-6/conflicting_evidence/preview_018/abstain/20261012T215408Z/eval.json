@@ -1,0 +1,28 @@
+{
+    "provider": "claudesdk",
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "conflicting_evidence",
+    "task_id": "preview_018",
+    "task_type": "abstain",
+    "expected_behavior": "abstain",
+    "action_type": "operational",
+    "run_id": "20261012T215408Z",
+    "artifact_dir": "results/claudesdk/us.anthropic.claude-sonnet-4-6/conflicting_evidence/preview_018/abstain/20261012T215408Z",
+    "task_dir": "/home/kojo/Code/agentabstain/data/tasks/conflicting_evidence/preview_018/abstain",
+    "generated_at": "2026-10-12T22:13:01Z",
+    "run_error": null,
+    "run_error_kind": "api_error",
+    "run_error_message": "API Error: Request rejected (429) · Too many requests, please wait before trying again.",
+    "metrics": {
+        "commit_check": {
+            "pass": null,
+            "skipped": "api_error",
+            "run_error_kind": "api_error"
+        },
+        "response_llm_judge": {
+            "pass": null,
+            "skipped": "api_error",
+            "run_error_kind": "api_error"
+        }
+    }
+}
