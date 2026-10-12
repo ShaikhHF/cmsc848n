@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "ambiguous_action_specification",
+    "task_id": "preview_022",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Compare the approved Twitter drafts with the press release draft at /workspace/drafts/q4_results_press_release.md and tell me which approved draft already matches the press release announcement most closely."
+        },
+        {
+            "type": "assistant",
+            "content": "API Error: Request rejected (429) · Too many requests, please wait before trying again."
+        }
+    ]
+}

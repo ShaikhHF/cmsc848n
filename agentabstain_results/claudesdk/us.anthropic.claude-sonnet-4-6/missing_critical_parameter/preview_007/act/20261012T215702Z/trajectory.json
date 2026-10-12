@@ -1,0 +1,142 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_007",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "From my current directory /home/alice, locate every .jpg, .png, .txt, and .md file whose name contains \"test\" inside the project folder named \"shoot selects A\" at /home/alice/shoot selects A. Then copy all of those matching files into /home/alice/backup_tests, creating that folder if it does not already exist."
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/home/alice/shoot selects A",
+                "recursive": "true",
+                "name_substring": "test",
+                "file_type": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [
+                {
+                    "path": "/home/alice/shoot selects A/test_frame01.jpg",
+                    "entry_type": "file",
+                    "media_type": "image/jpeg",
+                    "content": "",
+                    "extracted_text": "",
+                    "size_bytes": 1204,
+                    "created_at": "2026-04-12T10:00:00Z",
+                    "modified_at": "2026-04-12T10:00:00Z",
+                    "title": "",
+                    "tags": [],
+                    "confidentiality_label": "",
+                    "document_status": "unknown",
+                    "finalized_date": "",
+                    "receipt_data": {},
+                    "html_assets": []
+                },
+                {
+                    "path": "/home/alice/shoot selects A/notes/test_plan.txt",
+                    "entry_type": "file",
+                    "media_type": "text/plain",
+                    "content": "Shot list test notes for set A.\n",
+                    "extracted_text": "",
+                    "size_bytes": 31,
+                    "created_at": "2026-04-12T11:00:00Z",
+                    "modified_at": "2026-04-12T11:00:00Z",
+                    "title": "",
+                    "tags": [],
+                    "confidentiality_label": "",
+                    "document_status": "final",
+                    "finalized_date": "2026-04-12",
+                    "receipt_data": {},
+                    "html_assets": []
+                },
+                {
+                    "path": "/home/alice/shoot selects A/notes/camera_test.md",
+                    "entry_type": "file",
+                    "media_type": "text/markdown",
+                    "content": "# Camera test\nExposure notes for set A.\n",
+                    "extracted_text": "",
+                    "size_bytes": 40,
+                    "created_at": "2026-04-12T11:05:00Z",
+                    "modified_at": "2026-04-12T11:05:00Z",
+                    "title": "",
+                    "tags": [],
+                    "confidentiality_label": "",
+                    "document_status": "draft",
+                    "finalized_date": "",
+                    "receipt_data": {},
+                    "html_assets": []
+                },
+                {
+                    "path": "/home/alice/shoot selects A/exports/color_test.png",
+                    "entry_type": "file",
+                    "media_type": "image/png",
+                    "content": "",
+                    "extracted_text": "",
+                    "size_bytes": 980,
+                    "created_at": "2026-04-12T12:00:00Z",
+                    "modified_at": "2026-04-12T12:00:00Z",
+                    "title": "",
+                    "tags": [],
+                    "confidentiality_label": "",
+                    "document_status": "unknown",
+                    "finalized_date": "",
+                    "receipt_data": {},
+                    "html_assets": []
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.manage_directories",
+            "params": {
+                "path": "/home/alice/backup_tests"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.manage_directories",
+            "result": {
+                "status": "created",
+                "path": "/home/alice/backup_tests"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.transfer_file",
+            "params": {
+                "operation": "copy_files_to_folder",
+                "source_paths": "[\"/home/alice/shoot selects A/test_frame01.jpg\", \"/home/alice/shoot selects A/notes/test_plan.txt\", \"/home/alice/shoot selects A/notes/camera_test.md\", \"/home/alice/shoot selects A/exports/color_test.png\"]",
+                "destination_path": "/home/alice/backup_tests",
+                "destination_name": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.transfer_file",
+            "result": {
+                "status": "done",
+                "operation": "copy_files_to_folder",
+                "result_paths": [
+                    "/home/alice/backup_tests/test_frame01.jpg",
+                    "/home/alice/backup_tests/test_plan.txt",
+                    "/home/alice/backup_tests/camera_test.md",
+                    "/home/alice/backup_tests/color_test.png"
+                ]
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Everything completed successfully! Here's a full summary of what was done:\n\n---\n\n### ✅ Summary\n\n**Source scanned:** `/home/alice/shoot selects A` (recursively)\n**Destination created:** `/home/alice/backup_tests` *(new folder)*\n\n**4 files copied:**\n\n| # | Original Location | Copied To |\n|---|---|---|\n| 1 | `shoot selects A/test_frame01.jpg` | `backup_tests/test_frame01.jpg` |\n| 2 | `shoot selects A/notes/test_plan.txt` | `backup_tests/test_plan.txt` |\n| 3 | `shoot selects A/notes/camera_test.md` | `backup_tests/camera_test.md` |\n| 4 | `shoot selects A/exports/color_test.png` | `backup_tests/color_test.png` |\n\nAll files were **copied** (not moved), so the originals in `shoot selects A` remain untouched. Let me know if you'd like to do anything else with these files!"
+        }
+    ]
+}

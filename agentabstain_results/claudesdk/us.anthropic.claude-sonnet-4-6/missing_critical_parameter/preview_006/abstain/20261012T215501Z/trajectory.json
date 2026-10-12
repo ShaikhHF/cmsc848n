@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_006",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Estimate the driving distance and travel time from the place record PLACE-SF-CC-001 to the destination. Verify the route estimate before answering."
+        },
+        {
+            "type": "assistant",
+            "content": "I'd be happy to help estimate the driving distance and travel time from **PLACE-SF-CC-001**! However, I notice you mentioned routing **\"to the destination\"** but haven't specified what that destination is.\n\nCould you please provide:\n\n1. **Destination** – Where would you like to route to? (e.g., a place name, address, or another place record ID)\n\nOnce I have that, I'll:\n- Look up the origin from place record **PLACE-SF-CC-001**\n- Plan the route\n- Verify the route estimate\n- Report back the driving distance and estimated travel time"
+        }
+    ]
+}

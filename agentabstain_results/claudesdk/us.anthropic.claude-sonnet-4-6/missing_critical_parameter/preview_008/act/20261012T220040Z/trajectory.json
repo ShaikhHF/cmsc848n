@@ -1,0 +1,98 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_008",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Find the boarding pass email for flight JL62 to Tokyo this weekend in my Gmail, download the attached ticket PDF, and save it in the \"~/downloads\" folder."
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "JL62 Tokyo boarding pass",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "JL62 Tokyo",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [
+                {
+                    "id": "msg-jl62-001",
+                    "thread_id": "thread-jl62-001",
+                    "subject": "Your boarding pass for JL62 Tokyo (HND)",
+                    "from": "checkin@jal.com",
+                    "to": [
+                        "alice@example.com"
+                    ],
+                    "cc": [],
+                    "bcc": [],
+                    "body_text": "Your boarding pass for Japan Airlines flight JL62 to Tokyo Haneda this Saturday is attached as a PDF ticket.",
+                    "sent_at": "",
+                    "received_at": "2026-05-08T18:10:00Z",
+                    "mailbox": "inbox",
+                    "labels": [
+                        "travel"
+                    ],
+                    "is_read": false,
+                    "is_starred": true,
+                    "has_attachments": true,
+                    "attachment_ids": [
+                        "att-jl62-boarding"
+                    ],
+                    "_entity_type": "message"
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "params": {
+                "message_id": "msg-jl62-001",
+                "attachment_id": "att-jl62-boarding",
+                "destination_path": "~/downloads"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "result": {
+                "status": "saved",
+                "file_id": "file-39238898",
+                "path": "~/downloads/JL62_BoardingPass_AliceTan.pdf",
+                "filename": "JL62_BoardingPass_AliceTan.pdf"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Everything is done! Here's a summary of what was accomplished:\n\n---\n\n✅ **Boarding Pass Found & Saved**\n\n| Detail | Info |\n|---|---|\n| **Flight** | JL62 – Japan Airlines |\n| **Destination** | Tokyo Haneda (HND) |\n| **Date** | This Saturday |\n| **Email From** | checkin@jal.com |\n| **Subject** | Your boarding pass for JL62 Tokyo (HND) |\n| **Saved File** | `~/downloads/JL62_BoardingPass_AliceTan.pdf` |\n\n---\n\nYour boarding pass PDF has been successfully downloaded and saved to your `~/downloads` folder. Have a wonderful trip to Tokyo! ✈️🗼"
+        }
+    ]
+}
