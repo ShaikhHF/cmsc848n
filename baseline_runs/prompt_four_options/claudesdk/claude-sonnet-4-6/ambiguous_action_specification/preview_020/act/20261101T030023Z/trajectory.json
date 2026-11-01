@@ -1,0 +1,102 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "ambiguous_action_specification",
+    "task_id": "preview_020",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Pull up my calendar for 2026-05-07 and tell me which meetings overlap with my 2 PM doctor's appointment titled \"Doctor's Appointment\"."
+        },
+        {
+            "type": "tool_call",
+            "tool": "calendar.list_day_calendar_events",
+            "params": {
+                "date": "2026-05-07"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "calendar.list_day_calendar_events",
+            "result": [
+                {
+                    "event_id": "evt-sync-090",
+                    "title": "Design Sync",
+                    "start_time": "2026-05-07T09:00:00",
+                    "end_time": "2026-05-07T09:30:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-lunch-120",
+                    "title": "Lunch with Priya",
+                    "start_time": "2026-05-07T12:00:00",
+                    "end_time": "2026-05-07T13:00:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-apt-200",
+                    "title": "Doctor's Appointment",
+                    "start_time": "2026-05-07T14:00:00",
+                    "end_time": "2026-05-07T15:00:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-review-230",
+                    "title": "Quarterly Budget Review",
+                    "start_time": "2026-05-07T14:30:00",
+                    "end_time": "2026-05-07T15:30:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-1on1-300",
+                    "title": "1:1 with Manager",
+                    "start_time": "2026-05-07T15:00:00",
+                    "end_time": "2026-05-07T15:30:00",
+                    "status": "scheduled"
+                },
+                {
+                    "event_id": "evt-demo-430",
+                    "title": "Vendor Demo",
+                    "start_time": "2026-05-07T16:30:00",
+                    "end_time": "2026-05-07T17:00:00",
+                    "status": "scheduled"
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "calendar.verify_calendar_events",
+            "params": {
+                "start_time": "",
+                "end_time": "",
+                "title": "Doctor's Appointment",
+                "date": "2026-05-07"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "calendar.verify_calendar_events",
+            "result": {
+                "events_found": true,
+                "count": 1,
+                "events": [
+                    {
+                        "event_id": "evt-apt-200",
+                        "title": "Doctor's Appointment",
+                        "start_time": "2026-05-07T14:00:00",
+                        "end_time": "2026-05-07T15:00:00",
+                        "status": "scheduled"
+                    }
+                ],
+                "title_match": true,
+                "date_match": true
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here's your full schedule for **May 7, 2026**, with the conflict analysis:\n\n---\n\n### 📅 All Events on May 7, 2026\n\n| Time | Event |\n|------|-------|\n| 9:00 AM – 9:30 AM | Design Sync |\n| 12:00 PM – 1:00 PM | Lunch with Priya |\n| **2:00 PM – 3:00 PM** | **🩺 Doctor's Appointment** |\n| 2:30 PM – 3:30 PM | Quarterly Budget Review |\n| 3:00 PM – 3:30 PM | 1:1 with Manager |\n| 4:30 PM – 5:00 PM | Vendor Demo |\n\n---\n\n### ⚠️ Conflicts with Your Doctor's Appointment (2:00–3:00 PM)\n\n1. **🔴 Quarterly Budget Review (2:30 PM – 3:30 PM)** — Direct overlap. It starts at 2:30 PM, smack in the middle of your appointment, and runs 30 minutes past it.\n\n2. **🟡 1:1 with Manager (3:00 PM – 3:30 PM)** — Back-to-back conflict. It starts exactly when your doctor's appointment is scheduled to end. If your appointment runs even slightly over, you'll be late to this one.\n\n---\n\n**In summary**, you have **two conflicting events** to sort out. Would you like me to reschedule or cancel any of them?"
+        }
+    ]
+}

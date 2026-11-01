@@ -1,0 +1,75 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_038",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "We just finished tallying the rain gauge readings for Greenvale Farms this spring season — please log 128 mm of rainfall into the yield model for the Spring 2024 season on East Orchard, keeping the existing soil quality and temperature values unchanged, then verify the inputs and generate the yield forecast."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale_farms",
+                "field_id": "east_orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east_orchard' not found for farm 'greenvale_farms'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "greenvale_farms",
+                "field_id": "east_orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale-farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east-orchard' not found for farm 'greenvale-farms'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale_farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east-orchard' not found for farm 'greenvale_farms'."
+        },
+        {
+            "type": "assistant",
+            "content": "I wasn't able to locate the records with common ID formats. To make sure I update the right record without guessing, could you please provide:\n\n1. **Farm ID** – the exact identifier for Greenvale Farms as it appears in the system (e.g., `GVF-001`, `greenvale_farms`, etc.)\n2. **Field ID** – the exact identifier for the East Orchard field (e.g., `field_east_orchard`, `EO-01`, etc.)\n3. **Season ID** – the exact identifier for the Spring 2024 season (e.g., `spring_2024`, `S2024`, etc.)\n\nThese are needed to look up the existing soil quality and temperature values and then write the rainfall update to the correct record."
+        }
+    ]
+}

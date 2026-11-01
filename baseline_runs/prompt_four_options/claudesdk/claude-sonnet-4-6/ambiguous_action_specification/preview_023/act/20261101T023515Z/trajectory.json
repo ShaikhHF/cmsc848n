@@ -1,0 +1,38 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "ambiguous_action_specification",
+    "task_id": "preview_023",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Look up service ticket ticket_001 for vehicle veh_002 and tell me which scheduled services are overdue by more than 2 weeks."
+        },
+        {
+            "type": "tool_call",
+            "tool": "vehicle_status_and_control.get_ticket",
+            "params": {
+                "ticket_id": "ticket_001"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "vehicle_status_and_control.get_ticket",
+            "result": {
+                "ticket_id": "ticket_001",
+                "vehicle_id": "veh_002",
+                "title": "Scheduled oil change overdue by 18 days; tire rotation overdue by 16 days; brake inspection due in 5 days",
+                "priority": "medium",
+                "status": "open",
+                "resolution_note": null,
+                "created_at": "2026-05-03T09:00:00Z",
+                "closed_at": null
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here's a summary of **ticket_001** for vehicle **veh_002**:\n\n| Field | Details |\n|---|---|\n| **Ticket ID** | ticket_001 |\n| **Vehicle** | veh_002 |\n| **Priority** | Medium |\n| **Status** | Open |\n| **Created** | 2026-05-03 |\n\n---\n\n### 🔴 Services Overdue by More Than 2 Weeks (>14 days)\n\nBased on the ticket details, **2 services** are overdue by more than 2 weeks:\n\n| Service | Days Overdue | Exceeds 2-Week Threshold? |\n|---|---|---|\n| **Oil Change** | **18 days** | ✅ Yes (4 days past 2 weeks) |\n| **Tire Rotation** | **16 days** | ✅ Yes (2 days past 2 weeks) |\n\n---\n\n### ℹ️ Other Scheduled Services\n\n| Service | Status |\n|---|---|\n| **Brake Inspection** | Due in 5 days — not yet overdue |\n\n**Recommendation:** The oil change and tire rotation should be prioritized immediately given they've both exceeded the 2-week overdue threshold. Would you like me to escalate the ticket priority or take any further action?"
+        }
+    ]
+}
