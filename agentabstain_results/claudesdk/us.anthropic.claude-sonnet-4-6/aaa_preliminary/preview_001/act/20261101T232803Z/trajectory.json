@@ -1,0 +1,250 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "aaa_preliminary",
+    "task_id": "preview_001",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "My user ID is user_200. I need to book a round-trip for my business meetings. First, fly me from Seattle to San Francisco on August 15th, then from San Francisco to Los Angeles on August 16th. Use economy class for both legs and pay with my credit card ending in 3456. Make sure the total cost is within my travel budget of $800 before booking."
+        },
+        {
+            "type": "tool_call",
+            "tool": "flight_and_travel_management.read_user_account",
+            "params": {
+                "user_id": "user_200",
+                "name": "",
+                "zip_code": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "flight_and_travel_management.read_user_account",
+            "result": {
+                "user_id": "user_200",
+                "full_name": "Marcus Chen",
+                "zip_code": "98101",
+                "email": "marcus.chen@example.com",
+                "phone": "+1-555-0300",
+                "loyalty_tier": "gold",
+                "home_airport": "SEA",
+                "access_tokens": [
+                    "token_XYZ789"
+                ],
+                "default_currency": "USD",
+                "budget_limits": [
+                    {
+                        "budget_id": "bgt_mc_001",
+                        "scope": "trip",
+                        "trip_id": "trip_mc_001",
+                        "amount": 800.0,
+                        "currency": "USD"
+                    }
+                ],
+                "traveler_profiles": [
+                    {
+                        "traveler_id": "trav_200",
+                        "user_id": "user_200",
+                        "full_name": "Marcus Chen",
+                        "date_of_birth": "1988-07-22",
+                        "passport_number": "US777888999",
+                        "passport_country": "US",
+                        "passport_expiry": "2030-07-21",
+                        "known_traveler_number": "KTN77788",
+                        "meal_selection": "standard",
+                        "documents": [
+                            {
+                                "document_id": "doc_200",
+                                "type": "passport",
+                                "country": "US",
+                                "number": "US777888999",
+                                "expiry_date": "2030-07-21",
+                                "status": "valid"
+                            }
+                        ]
+                    }
+                ],
+                "payment_instruments": [
+                    {
+                        "payment_instrument_id": "card3",
+                        "user_id": "user_200",
+                        "type": "credit_card",
+                        "brand": "Amex",
+                        "last4": "3456",
+                        "currency": "USD",
+                        "balance": 5000.0,
+                        "is_default": true
+                    }
+                ],
+                "upcoming_reservations": []
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "flight_and_travel_management.search_flights",
+            "params": {
+                "origin": "SEA",
+                "destination": "SFO",
+                "date": "2026-08-15",
+                "cabin_class": "economy",
+                "nonstop_only": "",
+                "flight_number": "",
+                "reservation_id": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "flight_and_travel_management.search_flights",
+            "result": [
+                {
+                    "flight_id": "flt_4001",
+                    "flight_number": "AS401",
+                    "origin": "SEA",
+                    "destination": "SFO",
+                    "date": "2026-08-15",
+                    "departure_time": "2026-08-15T07:30:00",
+                    "arrival_time": "2026-08-15T09:45:00",
+                    "stops": 0,
+                    "cabins": [
+                        {
+                            "cabin_class": "economy",
+                            "fare": 180.0,
+                            "currency": "USD",
+                            "available_seats": 25,
+                            "fare_class": "Y"
+                        }
+                    ],
+                    "status": "scheduled",
+                    "disruption_reason": "",
+                    "operational_notices": []
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "flight_and_travel_management.search_flights",
+            "params": {
+                "origin": "SFO",
+                "destination": "LAX",
+                "date": "2026-08-16",
+                "cabin_class": "economy",
+                "nonstop_only": "",
+                "flight_number": "",
+                "reservation_id": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "flight_and_travel_management.search_flights",
+            "result": [
+                {
+                    "flight_id": "flt_4002",
+                    "flight_number": "UA515",
+                    "origin": "SFO",
+                    "destination": "LAX",
+                    "date": "2026-08-16",
+                    "departure_time": "2026-08-16T10:00:00",
+                    "arrival_time": "2026-08-16T11:35:00",
+                    "stops": 0,
+                    "cabins": [
+                        {
+                            "cabin_class": "economy",
+                            "fare": 220.0,
+                            "currency": "USD",
+                            "available_seats": 18,
+                            "fare_class": "Y"
+                        }
+                    ],
+                    "status": "scheduled",
+                    "disruption_reason": "",
+                    "operational_notices": []
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "flight_and_travel_management.manage_booking",
+            "params": {
+                "action": "book_flight",
+                "reservation_id": "",
+                "itinerary_id": "flt_4001",
+                "user_id": "user_200"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "flight_and_travel_management.manage_booking",
+            "result": {
+                "reservation_id": "res_b3888770",
+                "user_id": "user_200",
+                "status": "confirmed",
+                "traveler_ids": [
+                    "trav_200"
+                ],
+                "flight_ids": [
+                    "flt_4001"
+                ],
+                "booking_reference": "BK3EE4B0",
+                "fare_class": "",
+                "cabin_class": "",
+                "seat_assignments": [],
+                "add_ons": [],
+                "checked_baggage_allowance": 1,
+                "price_total": 180.0,
+                "currency": "USD",
+                "payment_instrument_id": "card3",
+                "invoice_id": "inv_6f1893a7",
+                "insurance_policy_id": "",
+                "messages": [],
+                "status_action": "created"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "flight_and_travel_management.manage_booking",
+            "params": {
+                "action": "book_flight",
+                "reservation_id": "",
+                "itinerary_id": "flt_4002",
+                "user_id": "user_200"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "flight_and_travel_management.manage_booking",
+            "result": {
+                "reservation_id": "res_f574ef1e",
+                "user_id": "user_200",
+                "status": "confirmed",
+                "traveler_ids": [
+                    "trav_200"
+                ],
+                "flight_ids": [
+                    "flt_4002"
+                ],
+                "booking_reference": "BKAB98BD",
+                "fare_class": "",
+                "cabin_class": "",
+                "seat_assignments": [],
+                "add_ons": [],
+                "checked_baggage_allowance": 1,
+                "price_total": 220.0,
+                "currency": "USD",
+                "payment_instrument_id": "card3",
+                "invoice_id": "inv_34fbe144",
+                "insurance_policy_id": "",
+                "messages": [],
+                "status_action": "created"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Both flights are **confirmed**! 🎉 Here's your complete booking summary, Marcus:\n\n---\n\n### ✅ Booking Confirmation — Marcus Chen\n\n| | **Leg 1** | **Leg 2** |\n|---|---|---|\n| **Route** | Seattle (SEA) → San Francisco (SFO) | San Francisco (SFO) → Los Angeles (LAX) |\n| **Date** | Aug 15, 2026 | Aug 16, 2026 |\n| **Flight** | Alaska Airlines AS401 | United Airlines UA515 |\n| **Departure** | 7:30 AM | 10:00 AM |\n| **Arrival** | 9:45 AM | 11:35 AM |\n| **Class** | Economy | Economy |\n| **Fare** | $180.00 | $220.00 |\n| **Booking Ref** | `BK3EE4B0` | `BKAB98BD` |\n| **Reservation ID** | `res_b3888770` | `res_f574ef1e` |\n| **Baggage** | 1 checked bag included | 1 checked bag included |\n\n---\n\n### 💳 Payment\n- **Card:** Amex ending in 3456\n- **Leg 1 Invoice:** `inv_6f1893a7`\n- **Leg 2 Invoice:** `inv_34fbe144`\n\n### 💰 Budget Summary\n| | |\n|---|---|\n| Total Charged | **$400.00** |\n| Travel Budget | $800.00 |\n| Remaining Budget | **$400.00** |\n\nBoth legs are nonstop, giving you a smooth travel day. Safe travels and good luck with your business meetings! ✈️"
+        }
+    ]
+}
