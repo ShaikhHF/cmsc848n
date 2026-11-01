@@ -1,0 +1,8 @@
+# Same judge as the Oct 12 runs in agentabstain_results/ (Claude Opus 4.6 on
+# Bedrock), so new verdicts are comparable with the existing ones. Needs
+# LLM_PROVIDER=bedrock in third_party/agentabstain/.env.
+judge_models:
+  - provider: "claudesdk"
+    model: "us.anthropic.claude-opus-4-6-v1"
+    temperature: 0.0
+    max_tokens: 1024

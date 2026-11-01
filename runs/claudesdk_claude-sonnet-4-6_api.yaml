@@ -1,0 +1,7 @@
+# Claude Sonnet 4.6 through the Anthropic API (ANTHROPIC_API_KEY) instead of
+# Bedrock. Same model and settings as src/configs/claudesdk_claude-sonnet-4-6.yaml.
+provider: "claudesdk"
+model: "claude-sonnet-4-6"
+temperature: 0.0
+max_turns: 30
+results_root: "results/claudesdk"
