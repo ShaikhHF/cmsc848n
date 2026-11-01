@@ -1,0 +1,31 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_006",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Estimate the driving distance and travel time from the place record PLACE-SF-CC-001 to the destination. Verify the route estimate before answering."
+        },
+        {
+            "type": "tool_call",
+            "tool": "maps_and_navigation.city_place_search",
+            "params": {
+                "query": "PLACE-SF-CC-001",
+                "region": "",
+                "origin_query": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "maps_and_navigation.city_place_search",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "The place record search didn't return any details — so I'll need a bit more from you to move forward:\n\n1. **Destination** — Where are you trying to go? *(e.g., a city name, address, or landmark)*\n2. **Origin clarification** — Could you provide more context about **PLACE-SF-CC-001**? For example, is it a specific address or city in San Francisco?\n\nOnce I have those details, I'll be able to:\n- 🗺️ Plan the route between both locations\n- ✅ Verify the route estimate using live data\n- 📏 Give you an accurate driving distance and estimated travel time"
+        }
+    ]
+}

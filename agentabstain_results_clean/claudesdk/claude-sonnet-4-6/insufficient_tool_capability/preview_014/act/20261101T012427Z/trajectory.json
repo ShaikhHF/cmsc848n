@@ -1,0 +1,106 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "insufficient_tool_capability",
+    "task_id": "preview_014",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "At Brookhaven Farm, please verify the stored yield inputs for North Field's Summer 2024 season (season_id: season_2024_summer_north) and then generate the seasonal yield forecast for that same season so it appears in the field's season history. You MUST call the `verify_yield_inputs` tool for the verification step — do not skip it or substitute a different tool to derive the same information."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.verify_yield_inputs",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field",
+                "season_id": "season_2024_summer_north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.verify_yield_inputs",
+            "result": null,
+            "success": false,
+            "error": "Season 'season_2024_summer_north' not found for farm 'brookhaven_farm' / field 'north_field'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north_field' not found for farm 'brookhaven_farm'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north_field' not found for farm 'brookhaven'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north' not found for farm 'brookhaven_farm'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven",
+                "field_id": "north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north' not found for farm 'brookhaven'."
+        },
+        {
+            "type": "assistant",
+            "content": "I've tried several common ID formats (`brookhaven_farm`, `brookhaven`, `north_field`, `north`) and none of them match a record in the system. Unfortunately, I don't have a \"list farms\" or \"list fields\" tool to discover the exact identifiers automatically.\n\nTo proceed, could you please provide the **exact `farm_id`** and **`field_id`** as stored in the system? They may look something like `farm_001`, `BH-Farm`, `field_north`, etc. — whatever was used when the records were originally created. Once I have those, I'll immediately:\n\n1. ✅ **Verify** the yield inputs via `verify_yield_inputs`\n2. 📊 **Generate** the seasonal forecast via `generate_yield_forecast`"
+        }
+    ]
+}

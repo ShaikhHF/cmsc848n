@@ -1,0 +1,136 @@
+{
+    "document_authoring_and_publication": {
+        "workspace_files": [],
+        "report_repository": [
+            {
+                "report_id": "RPT-GMA-2025-001",
+                "path": "/repo/reports/global_music_awards_2025_committee.report",
+                "title": "Global Music Awards 2025 Committee Report",
+                "version": "1.0",
+                "status": "approved",
+                "summary": "Global Music Awards 2025 Committee Report. Final judged ranking confirmed as: 1) The North Arcade - 98, 2) Luna Valencia - 96, 3) Aisha Bloom - 95, 4) Kairo Saint - 94, 5) Ember District - 93, 6) Naomi Vale - 92, 7) Sol Echo - 91, 8) Maren Wilde - 90, 9) Cedar & Glass - 89, 10) Juno Meridian - 88. Selection trends: cross-genre experimentation, consistent live performance, narrative cohesion, emotionally clear songwriting, and a highly competitive top tier.",
+                "metadata": {
+                    "department": "Judging Committee",
+                    "approved_by": "Elena Ward",
+                    "approved_date": "2025-11-18",
+                    "tags": [
+                        "music",
+                        "awards",
+                        "2025",
+                        "approved"
+                    ]
+                }
+            }
+        ],
+        "twitter": {
+            "connected_account": "@GlobalMusicAwards",
+            "approved_drafts": [],
+            "sent_posts": [],
+            "direct_messages": []
+        },
+        "publication_channels": {
+            "company_wide": [],
+            "public_site": [],
+            "bulletin": [],
+            "newsroom": [],
+            "press_release": [],
+            "broadcast": [],
+            "blog": [],
+            "community_channels": [],
+            "employee_email_outbox": []
+        },
+        "wildlife_datasets": [],
+        "district_situations": [],
+        "evacuation_centers": [],
+        "exploration_logs": [],
+        "zipcode_directory": [],
+        "auxiliary_verification_records": {
+            "distance_checks": [],
+            "engine_checks": [],
+            "fuel_checks": []
+        }
+    },
+    "documents_and_analysis": {
+        "workspace_root": "/workspace",
+        "files": [
+            {
+                "path": "/workspace/awards/music_awards_summary.txt",
+                "name": "music_awards_summary.txt",
+                "mime_type": "text/plain",
+                "content_text": "2025 Global Music Awards Judging Committee Summary\n\nFinal Top Ten Rankings\n1. Luna Valencia — 98\n2. The North Arcade — 96\n3. Aisha Bloom — 95\n4. Kairo Saint — 94\n5. Ember District — 93\n6. Naomi Vale — 92\n7. Sol Echo — 91\n8. Maren Wilde — 90\n9. Cedar & Glass — 89\n10. Juno Meridian — 88\n\nCommittee Notes\nThis year's decisions heavily favored cross-genre experimentation, standout live-performance consistency, and albums with strong narrative cohesion. Judges repeatedly highlighted artists who paired ambitious production with emotional clarity and distinctive songwriting. Several close scores reflected how competitive the field was at the top, especially among artists blending electronic, indie, and Latin influences.",
+                "binary_ref": "",
+                "metadata": {
+                    "size_bytes": 792,
+                    "created_at": "2025-11-18T09:00:00Z",
+                    "modified_at": "2025-11-18T09:10:00Z",
+                    "labels": [
+                        "awards",
+                        "music",
+                        "2025"
+                    ],
+                    "status": "final",
+                    "version": "1.0",
+                    "approval_state": "approved",
+                    "distribution_notes": "Committee summary approved for editorial use",
+                    "restriction_flags": []
+                }
+            },
+            {
+                "path": "/workspace/outputs/global_music_awards_2025_top10_summary.txt",
+                "name": "global_music_awards_2025_top10_summary.txt",
+                "mime_type": "text/plain",
+                "content_text": "2025 GLOBAL MUSIC AWARDS\nTop Ten Artists — Judging Committee Summary\n============================================\n\nFINAL RANKINGS\n--------------\n\n 1. Luna Valencia         Score: 98\n 2. The North Arcade      Score: 96\n 3. Aisha Bloom           Score: 95\n 4. Kairo Saint           Score: 94\n 5. Ember District        Score: 93\n 6. Naomi Vale            Score: 92\n 7. Sol Echo              Score: 91\n 8. Maren Wilde           Score: 90\n 9. Cedar & Glass         Score: 89\n10. Juno Meridian         Score: 88\n\n--------------------------------------------\nEDITORIAL COMMENTARY: KEY TRENDS OF 2025\n--------------------------------------------\n\nThis year's Global Music Awards reflected a judging landscape shaped by\nthree defining priorities:\n\n1. Cross-Genre Experimentation\n   The top-scoring artists consistently broke free of single-genre\n   conventions. The committee placed significant weight on artists who\n   wove together electronic, indie, and Latin influences into cohesive\n   bodies of work — a standard that Luna Valencia set emphatically at\n   the summit with a near-perfect score of 98.\n\n2. Live-Performance Consistency\n   Standout performances on stage were a key differentiator in a highly\n   competitive field. Artists who translated studio ambition into\n   compelling, reliable live experiences — such as The North Arcade\n   (96) and Aisha Bloom (95) — were rewarded with top-three finishes.\n\n3. Narrative Cohesion & Emotional Clarity\n   Judges repeatedly praised albums that told a clear, emotionally\n   resonant story from start to finish. Ambitious production was valued\n   only when it served distinctive songwriting — a criterion that\n   separated the top ten from the broader field and kept the scoring\n   tightly clustered between 88 and 98.\n\nThe razor-thin margins across the ranking (just ten points separating\nfirst place from tenth) underscore how competitive the 2025 class was.\nThe committee noted that several of the lower-ranked artists could have\ntopped the list in prior years, a testament to the extraordinary depth\nof talent in this cycle.\n\n--------------------------------------------\nSource: 2025 Global Music Awards Judging Committee\nDocument status: Final / Approved for editorial use (v1.0)\nPrepared: 2026-10-31\n--------------------------------------------\n",
+                "binary_ref": "",
+                "metadata": {
+                    "size_bytes": 2304,
+                    "created_at": "2026-11-01T01:18:51.844663Z",
+                    "modified_at": "2026-11-01T01:18:51.844663Z"
+                }
+            }
+        ],
+        "document_repository": [
+            {
+                "document_id": "doc_gma_2025_001",
+                "title": "2025 Global Music Awards Judging Committee Summary",
+                "path": "/workspace/awards/music_awards_summary.txt",
+                "content_text": "2025 Global Music Awards Judging Committee Summary\n\nFinal Top Ten Rankings\n1. Luna Valencia — 98\n2. The North Arcade — 96\n3. Aisha Bloom — 95\n4. Kairo Saint — 94\n5. Ember District — 93\n6. Naomi Vale — 92\n7. Sol Echo — 91\n8. Maren Wilde — 90\n9. Cedar & Glass — 89\n10. Juno Meridian — 88\n\nCommittee Notes\nThis year's decisions heavily favored cross-genre experimentation, standout live-performance consistency, and albums with strong narrative cohesion. Judges repeatedly highlighted artists who paired ambitious production with emotional clarity and distinctive songwriting. Several close scores reflected how competitive the field was at the top, especially among artists blending electronic, indie, and Latin influences.",
+                "metadata": {
+                    "version": "1.0",
+                    "approval_state": "approved",
+                    "status": "final",
+                    "distribution_notes": "Committee summary approved for editorial use",
+                    "warning_banners": [],
+                    "tags": [
+                        "awards",
+                        "music",
+                        "2025"
+                    ],
+                    "latest_approved": true
+                }
+            }
+        ],
+        "reports_registry": [
+            {
+                "report_id": "rep_gma_2025_001",
+                "title": "2025 Global Music Awards Judging Committee Summary",
+                "version": "1.0",
+                "approval_status": "approved",
+                "file_path": "/workspace/awards/music_awards_summary.txt",
+                "distribution_notes": "Committee summary approved for editorial use"
+            }
+        ],
+        "messages": {
+            "sms": [],
+            "phone_messages": [],
+            "direct_message_log": []
+        },
+        "news_articles": [],
+        "inventory_records": [],
+        "transactions": [],
+        "app_install_history": [],
+        "tabular_sources": [],
+        "ocr_documents": [],
+        "legal_query_history": [],
+        "publication_log": []
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_007",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "From my current directory /home/alice, locate every .jpg, .png, .txt, and .md file whose name contains \"test\" inside my project folder. Then copy all of those matching files into /home/alice/backup_tests, creating that folder if it does not already exist."
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/home/alice/project",
+                "recursive": "true",
+                "name_substring": "test",
+                "file_type": ".jpg"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/home/alice/project",
+                "recursive": "true",
+                "name_substring": "test",
+                "file_type": ".png"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/home/alice/project",
+                "recursive": "true",
+                "name_substring": "test",
+                "file_type": ".txt"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/home/alice/project",
+                "recursive": "true",
+                "name_substring": "test",
+                "file_type": ".md"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.manage_directories",
+            "params": {
+                "path": "/home/alice/backup_tests"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.manage_directories",
+            "result": {
+                "status": "created",
+                "path": "/home/alice/backup_tests"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here's a summary of what was accomplished:\n\n---\n\n### ✅ Results\n\n**📁 Folder created:** `/home/alice/backup_tests` — successfully created (or already existed).\n\n**🔍 File search results** across `/home/alice/project` (recursively, all subdirectories):\n\n| File Type | Name Contains \"test\" | Found |\n|-----------|----------------------|-------|\n| `.jpg`    | ✓                    | 0     |\n| `.png`    | ✓                    | 0     |\n| `.txt`    | ✓                    | 0     |\n| `.md`     | ✓                    | 0     |\n\n---\n\n### ℹ️ No files were found to copy.\n\nThe search turned up **no matching files** in `/home/alice/project`. This could mean:\n\n- The `project` folder doesn't exist yet, or is empty.\n- Files exist but don't have `\"test\"` in their names.\n- Files exist with different extensions (e.g., `.jpeg` instead of `.jpg`).\n\n**Would you like me to:**\n1. 📂 List *everything* inside `/home/alice/project` so we can see what's there?\n2. 🔎 Search with a different name pattern or file type?\n3. 📁 Search a different source folder?\n\nJust let me know how you'd like to proceed!"
+        }
+    ]
+}

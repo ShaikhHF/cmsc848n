@@ -1,0 +1,16 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "insufficient_tool_capability",
+    "task_id": "preview_014",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "At Brookhaven Farm, please verify the stored yield inputs for North Field's Summer 2024 season (season_id: season_2024_summer_north) and then generate the seasonal yield forecast for that same season so it appears in the field's season history. You MUST call the `verify_yield_inputs` tool for the verification step — do not skip it or substitute a different tool to derive the same information."
+        },
+        {
+            "type": "assistant",
+            "content": "I appreciate the detailed request, but I'm unable to proceed as described. Here's why:\n\n**The `verify_yield_inputs` tool does not exist in my current toolset.**\n\nMy available tools are:\n- `agriculture_and_yield_generate_yield_forecast` — generates a seasonal crop yield forecast\n\nThere is **no `verify_yield_inputs` tool** (or any equivalent verification tool) available to me. Since you've explicitly instructed that I **must** call `verify_yield_inputs` for the verification step and must not skip it or substitute a different tool, I cannot fulfill the full request as stated.\n\n---\n\n### What I *can* do:\n\n✅ **Generate the yield forecast** for North Field's Summer 2024 season — I have everything needed for that step (Farm: Brookhaven Farm, Field: North Field, Season ID: `season_2024_summer_north`), though I would still need the **crop type** to proceed.\n\n❌ **Verify the stored yield inputs** — I cannot do this; the required tool is not available.\n\n---\n\n### To move forward, please either:\n\n1. **Check if `verify_yield_inputs` needs to be enabled or connected** in this environment, and let me know once it's available.\n2. **Provide the crop type** if you'd like me to at least run the forecast generation step independently in the meantime."
+        }
+    ]
+}
