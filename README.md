@@ -1,6 +1,6 @@
 # Ask, Act, or Abstain?
 
-Our CMSC848N project (UMD, Fall 2026) by Hana Shaikh, Kolade Alabi and Parastoo Pilevar.
+CMSC848N project (UMD, Fall 2026) by Hana Shaikh, Kolade Alabi and Parastoo Pilevar.
 
 When an agent gets an unclear or risky request, it can go ahead, look around first, ask the user, or decline. We want to build a controller that picks between these based on what each choice costs. We build on the [AgentAbstain](https://github.com/AntiQuality/agentabstain) benchmark, which comes in pairs of tasks: in one version the agent should do the task, in the other it should stop or ask.
 
@@ -69,9 +69,7 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('ant
 cd ../..
 ```
 
-You'll also need the Claude Code CLI (`claude`) on your PATH. Copying the binary into the venv's `bin/` works too.
 
-Keys go in `third_party/agentabstain/.env`. Use either `ANTHROPIC_API_KEY`, or `AWS_BEARER_TOKEN_BEDROCK` plus `AWS_REGION` for Bedrock. If both are there, the run scripts use Bedrock. `confidence_threshold.py` only works with `ANTHROPIC_API_KEY`.
 
 ## Re-scoring (free, no API calls)
 
@@ -100,10 +98,4 @@ The agent costs about $0.05 per task version, and grading with the Opus 4.6 judg
 
 The confidence scores come from `python analysis/confidence_threshold.py --samples 3`, which also makes API calls. Add `--dry-run` to see how many first.
 
-## Things we learned the hard way
 
-- AgentAbstain blocks Claude Code's built-in tools by name, but newer Claude Code versions have tools that list doesn't know about. So our first runs could see tools like ToolSearch. We re-ran everything with all built-in tools off. Only 4 of 64 results changed, as shown in [analysis/output/robustness_no_builtin_tools.md](analysis/output/robustness_no_builtin_tools.md).
-- Newer `mcp` and `anthropic` packages break the benchmark's tool bridge and judge, hence the version pins above.
-- The benchmark grades asking and refusing the same way. So "always ask" scores the same as "always abstain" for now, and we can't charge for questions yet.
-- The grading has blind spots. The commit check matches tool names, so finishing a task with a differently named tool counts as incomplete. On 16 of the 32 should-act versions there's no commit tool to check, so "correct" only means the judge saw no abstention, and the judge reads the final message, not the tool results. Five failure labels look doubtful to us; they're listed in the summary and still count in our results.
-- AgentAbstain skips grading when an agent hits the 30-turn limit. We count those should-act runs as incomplete acts rather than dropping them. So far this has happened once.
