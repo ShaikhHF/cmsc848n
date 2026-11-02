@@ -4,3 +4,5 @@ third_party/agentabstain/data/
 results/
 token_usage/
 logs/
+__pycache__/
+batch_runs/

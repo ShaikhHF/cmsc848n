@@ -1,0 +1,16 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "conflicting_constraints",
+    "task_id": "preview_027",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "For the Taipei birth details March 14, 1990 at 06:45, generate a chart strictly as a traditional Bazi Four Pillars chart, using timezone Asia/Taipei exclusively and using timezone UTC exclusively."
+        },
+        {
+            "type": "assistant",
+            "content": "I'd be happy to generate both Bazi charts simultaneously — one with **Asia/Taipei** and one with **UTC**! However, I'm missing one required parameter:\n\n- **Sex** — Please provide the sex of the person (e.g., *male* or *female*), as it is required by the Bazi charting rules.\n\nOnce you provide that, I'll kick off both chart requests at the same time!"
+        }
+    ]
+}

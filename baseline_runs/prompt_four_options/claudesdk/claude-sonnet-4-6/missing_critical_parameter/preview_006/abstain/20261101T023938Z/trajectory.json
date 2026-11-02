@@ -1,0 +1,31 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_006",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Estimate the driving distance and travel time from the place record PLACE-SF-CC-001 to the destination. Verify the route estimate before answering."
+        },
+        {
+            "type": "tool_call",
+            "tool": "maps_and_navigation.city_place_search",
+            "params": {
+                "query": "PLACE-SF-CC-001",
+                "region": "",
+                "origin_query": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "maps_and_navigation.city_place_search",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "The place record search didn't return any details about `PLACE-SF-CC-001`. To move forward, I'll need:\n\n1. **The destination** — where are you trying to go?\n2. Optionally, any clarification on the origin `PLACE-SF-CC-001` if you have a human-readable address or city name for it (e.g., does \"SF\" stand for San Francisco?).\n\nOnce you provide the destination, I'll plan the route and verify the estimate before giving you the final answer!"
+        }
+    ]
+}

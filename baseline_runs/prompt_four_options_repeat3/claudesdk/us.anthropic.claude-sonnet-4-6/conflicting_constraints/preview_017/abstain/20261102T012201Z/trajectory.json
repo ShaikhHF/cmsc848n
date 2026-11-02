@@ -1,0 +1,78 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "conflicting_constraints",
+    "task_id": "preview_017",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "For vehicle veh_001, verify that every door is locked and that every door is unlocked. If both conditions are already true, create a high-priority service ticket titled \"Remote lock and lighting status confirmed\"."
+        },
+        {
+            "type": "tool_call",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "params": {
+                "vehicle_id": "veh_001",
+                "expected_conditions": "{\"all_doors_locked\": true}"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "result": {
+                "vehicle_id": "veh_001",
+                "verified": true,
+                "all_conditions_met": true,
+                "checks": {
+                    "all_doors_locked": {
+                        "expected": true,
+                        "actual": true,
+                        "pass": true
+                    }
+                },
+                "current_status_summary": {
+                    "engine_running": false,
+                    "is_parked": true,
+                    "gear_position": "P",
+                    "battery_voltage": 12.6
+                }
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "params": {
+                "vehicle_id": "veh_001",
+                "expected_conditions": "{\"all_doors_unlocked\": true}"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "result": {
+                "vehicle_id": "veh_001",
+                "verified": false,
+                "all_conditions_met": false,
+                "checks": {
+                    "all_doors_unlocked": {
+                        "expected": true,
+                        "actual": false,
+                        "pass": false
+                    }
+                },
+                "current_status_summary": {
+                    "engine_running": false,
+                    "is_parked": true,
+                    "gear_position": "P",
+                    "battery_voltage": 12.6
+                }
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here are the verification results for **veh_001**:\n\n| Condition | Result |\n|---|---|\n| ✅ All doors **locked** | **PASS** — All doors are confirmed locked |\n| ❌ All doors **unlocked** | **FAIL** — Doors are not unlocked (they're locked) |\n\n**The service ticket will not be created.** The two conditions are mutually exclusive — a door cannot be both locked *and* unlocked at the same time. Since the \"all doors unlocked\" check **failed**, the prerequisite of *both* conditions being true is not met.\n\n**Current vehicle state summary:**\n- All doors: 🔒 **Locked**\n- Engine: Off\n- Gear: Park (P)\n- Battery Voltage: 12.6V\n- Status: Parked\n\nIf you'd like to create a service ticket for a different reason, or if you meant to check a different set of conditions (e.g., verifying just that all doors are locked), I'm happy to help!"
+        }
+    ]
+}

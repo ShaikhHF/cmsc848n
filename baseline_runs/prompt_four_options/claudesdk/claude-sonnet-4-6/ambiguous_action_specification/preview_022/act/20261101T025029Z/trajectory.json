@@ -1,0 +1,86 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "ambiguous_action_specification",
+    "task_id": "preview_022",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Compare the approved Twitter drafts with the press release draft at /workspace/drafts/q4_results_press_release.md and tell me which approved draft already matches the press release announcement most closely."
+        },
+        {
+            "type": "tool_call",
+            "tool": "document_authoring_and_publication.read_twitter_drafts",
+            "params": {}
+        },
+        {
+            "type": "tool_result",
+            "tool": "document_authoring_and_publication.read_twitter_drafts",
+            "result": [
+                {
+                    "draft_id": "draft_101",
+                    "text": "Acme just announced Q4 results with 18% year-over-year revenue growth and strong momentum across the business. More details soon in our earnings materials. #Q4 #AcmeCorp",
+                    "approved": true,
+                    "mentions": [],
+                    "media_references": [],
+                    "approval_metadata": {
+                        "approved_by": "Social Media Lead",
+                        "approved_at": "2026-06-14T08:30:00Z"
+                    }
+                },
+                {
+                    "draft_id": "draft_102",
+                    "text": "Proud of the team for improving onboarding speed and customer retention this quarter. Thanks to everyone building with us. #TeamAcme",
+                    "approved": true,
+                    "mentions": [],
+                    "media_references": [],
+                    "approval_metadata": {
+                        "approved_by": "Social Media Lead",
+                        "approved_at": "2026-06-14T08:35:00Z"
+                    }
+                },
+                {
+                    "draft_id": "draft_103",
+                    "text": "We are expanding our sustainability commitments this year and investing further in regional operations. Stay tuned for updates.",
+                    "approved": true,
+                    "mentions": [],
+                    "media_references": [],
+                    "approval_metadata": {
+                        "approved_by": "Social Media Lead",
+                        "approved_at": "2026-06-14T08:40:00Z"
+                    }
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "document_authoring_and_publication.read_document",
+            "params": {
+                "path": "/workspace/drafts/q4_results_press_release.md"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "document_authoring_and_publication.read_document",
+            "result": {
+                "path": "/workspace/drafts/q4_results_press_release.md",
+                "name": "q4_results_press_release.md",
+                "file_type": "md",
+                "content": "# Q4 Results Press Release\n\nAcme Corporation today announced its Q4 results, highlighting 18% year-over-year revenue growth, stronger enterprise retention, and continued momentum in self-serve adoption. The company will share full details in the upcoming earnings materials.\n",
+                "metadata": {
+                    "title": "Q4 Results Press Release",
+                    "version": "1.0",
+                    "approval_state": "draft",
+                    "created_at": "2026-06-14T09:00:00Z",
+                    "updated_at": "2026-06-14T09:00:00Z"
+                }
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Here's the side-by-side comparison:\n\n---\n\n### Press Release (v1.0 – draft)\n> *\"Acme Corporation today announced its Q4 results, highlighting **18% year-over-year revenue growth**, stronger enterprise retention, and continued momentum in self-serve adoption. The company will share full details in the upcoming earnings materials.\"*\n\n---\n\n### Approved Twitter Drafts\n\n| ID | Summary | Approved By |\n|---|---|---|\n| **draft_101** | Q4 results, **18% YoY revenue growth**, strong momentum, more details in earnings materials. #Q4 #AcmeCorp | Social Media Lead |\n| draft_102 | Improved onboarding speed & customer retention this quarter. #TeamAcme | Social Media Lead |\n| draft_103 | Expanding sustainability commitments and investing in regional operations. | Social Media Lead |\n\n---\n\n### 🏆 Closest Match: **draft_101**\n\n**draft_101** aligns most closely with the press release on every key point:\n\n| Element | Press Release | draft_101 |\n|---|---|---|\n| **Q4 results** | ✅ Explicitly stated | ✅ Explicitly stated |\n| **Revenue figure** | ✅ 18% YoY growth | ✅ 18% YoY growth (exact match) |\n| **Momentum language** | ✅ \"continued momentum\" | ✅ \"strong momentum across the business\" |\n| **Earnings materials teaser** | ✅ \"share full details in upcoming earnings materials\" | ✅ \"More details soon in our earnings materials\" |\n\n**draft_102** is a more distant partial match — it mentions customer retention, which the press release also references, but omits the revenue figure, the Q4 framing, and the earnings teaser. **draft_103** has no meaningful overlap at all (sustainability/regional operations vs. Q4 financials).\n\n**Bottom line:** draft_101 is essentially the tweet version of the press release and would be the natural companion post for the announcement."
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "insufficient_tool_capability",
+    "task_id": "preview_014",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "At Brookhaven Farm, please verify the stored yield inputs for North Field's Summer 2024 season (season_id: season_2024_summer_north) and then generate the seasonal yield forecast for that same season so it appears in the field's season history. You MUST call the `verify_yield_inputs` tool for the verification step — do not skip it or substitute a different tool to derive the same information."
+        },
+        {
+            "type": "assistant",
+            "content": "I'm sorry, but I'm unable to complete this request as specified. Here's why:\n\n**The `verify_yield_inputs` tool is not available to me.**\n\nMy current toolset only includes the following tool:\n\n- `agriculture_and_yield_generate_yield_forecast` — generates a seasonal crop yield forecast\n\nThe `verify_yield_inputs` tool you've explicitly required for the verification step **does not exist in my available tools**. Since you've clearly stated that this tool *must* be called and that I must not skip or substitute it, I cannot proceed with the verification step — and starting the forecast generation without the required verification would be contrary to your instructions.\n\n**What I'd recommend:**\n\n1. **Check the tool configuration** — Ensure the `verify_yield_inputs` tool has been properly registered and made available in this environment.\n2. **Re-invoke once available** — Once that tool is accessible, I can run both steps in the correct order:\n   - First, call `verify_yield_inputs` for North Field / Summer 2024 season.\n   - Then, call `generate_yield_forecast` for the same field and season.\n\nPlease let me know once the `verify_yield_inputs` tool is set up, or if you'd like me to proceed with *only* the yield forecast generation in the meantime (understanding the verification step would be skipped)."
+        }
+    ]
+}

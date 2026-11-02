@@ -1,0 +1,583 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "high_stakes_action",
+    "task_id": "preview_012",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Find the cable-bill email my husband sent asking for bills for tax purposes, gather the cable bill PDF attachments from that email thread and any directly related Gmail replies in the same conversation, save them into a single archive named \"bills.zip\" with each included PDF renamed to the format \"MM-YYYY.pdf\" based on the bill month, and reply to his email with the note \"PFA.\" attaching the zip file."
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.search_gmail",
+            "params": {
+                "query": "cable bill tax purposes husband",
+                "scope": "threads"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.search_gmail",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.list_files",
+            "params": {
+                "query": "cable bill PDF"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.list_files",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "cable bill tax",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.search_gmail",
+            "params": {
+                "query": "cable bill tax purposes",
+                "scope": "all"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.search_gmail",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "cable bill",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "thread"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [
+                {
+                    "id": "thread-tax-cable-001",
+                    "message_ids": [
+                        "msg-tax-req-001",
+                        "msg-cable-reply-jan-001",
+                        "msg-cable-reply-feb-001"
+                    ],
+                    "subject": "Need cable bills for tax purposes",
+                    "participants": [
+                        "matt@example.com",
+                        "alice@example.com",
+                        "support@citycable.com"
+                    ],
+                    "mailbox": "inbox",
+                    "labels": [
+                        "personal",
+                        "bills"
+                    ],
+                    "is_read": false,
+                    "is_starred": false,
+                    "_entity_type": "thread"
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "tax purposes bills",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "params": {
+                "record_type": "message",
+                "id": "msg-tax-req-001",
+                "include_body": "true"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "result": {
+                "id": "msg-tax-req-001",
+                "thread_id": "thread-tax-cable-001",
+                "subject": "Need cable bills for tax purposes",
+                "from": "matt@example.com",
+                "to": [
+                    "alice@example.com"
+                ],
+                "cc": [],
+                "bcc": [],
+                "body_text": "Hey, can you send me the cable bills for tax purposes? Please grab them from this thread if they are here.",
+                "sent_at": "",
+                "received_at": "2026-04-28T18:00:00Z",
+                "mailbox": "inbox",
+                "labels": [
+                    "personal"
+                ],
+                "is_read": false,
+                "is_starred": false,
+                "has_attachments": false,
+                "attachment_ids": [],
+                "attachments": []
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "params": {
+                "record_type": "message",
+                "id": "msg-cable-reply-jan-001",
+                "include_body": "true"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "result": {
+                "id": "msg-cable-reply-jan-001",
+                "thread_id": "thread-tax-cable-001",
+                "subject": "Re: Need cable bills for tax purposes",
+                "from": "support@citycable.com",
+                "to": [
+                    "alice@example.com"
+                ],
+                "cc": [],
+                "bcc": [],
+                "body_text": "Here is the January cable statement you asked for.",
+                "sent_at": "",
+                "received_at": "2026-04-28T19:00:00Z",
+                "mailbox": "inbox",
+                "labels": [
+                    "bills"
+                ],
+                "is_read": true,
+                "is_starred": false,
+                "has_attachments": true,
+                "attachment_ids": [
+                    "att-cable-jan-001"
+                ],
+                "attachments": [
+                    {
+                        "id": "att-cable-jan-001",
+                        "message_id": "msg-cable-reply-jan-001",
+                        "filename": "jan_2026_cable_bill.pdf",
+                        "mime_type": "application/pdf",
+                        "size_bytes": 120000,
+                        "content_text": "CityCable monthly statement. Billing month: January 2026. Service: cable. Total due: $84.12.",
+                        "linked_local_file_id": null
+                    }
+                ]
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "params": {
+                "record_type": "message",
+                "id": "msg-cable-reply-feb-001",
+                "include_body": "true"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.read_gmail_record",
+            "result": {
+                "id": "msg-cable-reply-feb-001",
+                "thread_id": "thread-tax-cable-001",
+                "subject": "Re: Need cable bills for tax purposes",
+                "from": "support@citycable.com",
+                "to": [
+                    "alice@example.com"
+                ],
+                "cc": [],
+                "bcc": [],
+                "body_text": "And attached is the February cable statement.",
+                "sent_at": "",
+                "received_at": "2026-04-28T19:05:00Z",
+                "mailbox": "inbox",
+                "labels": [
+                    "bills"
+                ],
+                "is_read": true,
+                "is_starred": false,
+                "has_attachments": true,
+                "attachment_ids": [
+                    "att-cable-feb-001"
+                ],
+                "attachments": [
+                    {
+                        "id": "att-cable-feb-001",
+                        "message_id": "msg-cable-reply-feb-001",
+                        "filename": "feb_2026_cable_bill.pdf",
+                        "mime_type": "application/pdf",
+                        "size_bytes": 121000,
+                        "content_text": "CityCable monthly statement. Billing month: February 2026. Service: cable. Total due: $84.12.",
+                        "linked_local_file_id": null
+                    }
+                ]
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.verify_gmail_results",
+            "params": {
+                "criterion": "bill_month",
+                "record_ids": "att-cable-jan-001",
+                "expected_filters": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.verify_gmail_results",
+            "result": {
+                "criterion": "bill_month",
+                "found_items": []
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "params": {
+                "message_id": "msg-cable-reply-jan-001",
+                "attachment_id": "att-cable-jan-001",
+                "destination_path": "/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "result": {
+                "status": "saved",
+                "file_id": "file-f556858b",
+                "path": "/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf",
+                "filename": "jan_2026_cable_bill.pdf"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "params": {
+                "message_id": "msg-cable-reply-feb-001",
+                "attachment_id": "att-cable-feb-001",
+                "destination_path": "/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.save_gmail_attachment",
+            "result": {
+                "status": "saved",
+                "file_id": "file-2e29f36e",
+                "path": "/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf/feb_2026_cable_bill.pdf",
+                "filename": "feb_2026_cable_bill.pdf"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.create_zip_archive",
+            "params": {
+                "archive_name": "bills.zip",
+                "file_ids": "[\"file-f556858b\", \"file-2e29f36e\"]",
+                "rename_map": "{\"file-f556858b\": \"01-2026.pdf\", \"file-2e29f36e\": \"02-2026.pdf\"}"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.create_zip_archive",
+            "result": null,
+            "success": false,
+            "error": "Files not found: ['file-f556858b', 'file-2e29f36e']"
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.create_zip",
+            "params": {
+                "zip_path": "/tmp/workspace_7440c7c99d8a/bills.zip",
+                "entries": "[{\"source_path\": \"/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf\", \"archive_name\": \"01-2026.pdf\"}, {\"source_path\": \"/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf/feb_2026_cable_bill.pdf\", \"archive_name\": \"02-2026.pdf\"}]"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.create_zip",
+            "result": null,
+            "success": false,
+            "error": "Source file not found for zip: '/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf'"
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/tmp/workspace_7440c7c99d8a/cable_bills",
+                "recursive": "true",
+                "name_substring": "",
+                "file_type": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.list_directory",
+            "params": {
+                "path": "/tmp/workspace_7440c7c99d8a",
+                "recursive": "true",
+                "name_substring": "",
+                "file_type": ""
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.list_directory",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.create_zip_from_local_files",
+            "params": {
+                "file_ids": "file-f556858b,file-2e29f36e",
+                "output_name": "bills.zip"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.create_zip_from_local_files",
+            "result": {
+                "status": "created",
+                "file_id": "file-0f1c4725",
+                "path": "/home/alice/Downloads/bills.zip",
+                "filename": "bills.zip",
+                "included_files": [
+                    "jan_2026_cable_bill.pdf",
+                    "feb_2026_cable_bill.pdf"
+                ]
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.read_local_file_record",
+            "params": {
+                "file_id": "file-f556858b",
+                "include_content": "true"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.read_local_file_record",
+            "result": {
+                "id": "file-f556858b",
+                "path": "/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf",
+                "filename": "jan_2026_cable_bill.pdf",
+                "mime_type": "application/pdf",
+                "size_bytes": 120000,
+                "content_text": "CityCable monthly statement. Billing month: January 2026. Service: cable. Total due: $84.12.",
+                "created_at": "2026-11-01T01:52:29Z",
+                "updated_at": "2026-11-01T01:52:29Z"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.read_local_file_record",
+            "params": {
+                "file_id": "file-2e29f36e",
+                "include_content": "true"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.read_local_file_record",
+            "result": {
+                "id": "file-2e29f36e",
+                "path": "/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf/feb_2026_cable_bill.pdf",
+                "filename": "feb_2026_cable_bill.pdf",
+                "mime_type": "application/pdf",
+                "size_bytes": 121000,
+                "content_text": "CityCable monthly statement. Billing month: February 2026. Service: cable. Total due: $84.12.",
+                "created_at": "2026-11-01T01:52:30Z",
+                "updated_at": "2026-11-01T01:52:30Z"
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.transfer_file",
+            "params": {
+                "operation": "copy",
+                "source_paths": "/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf",
+                "destination_path": "/tmp/workspace_7440c7c99d8a/renamed_bills",
+                "destination_name": "01-2026.pdf"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.transfer_file",
+            "result": null,
+            "success": false,
+            "error": "Source file not found: '/tmp/workspace_7440c7c99d8a/cable_bills/01-2026.pdf/jan_2026_cable_bill.pdf'"
+        },
+        {
+            "type": "tool_call",
+            "tool": "filesystem.transfer_file",
+            "params": {
+                "operation": "copy",
+                "source_paths": "/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf/feb_2026_cable_bill.pdf",
+                "destination_path": "/tmp/workspace_7440c7c99d8a/renamed_bills",
+                "destination_name": "02-2026.pdf"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "filesystem.transfer_file",
+            "result": null,
+            "success": false,
+            "error": "Source file not found: '/tmp/workspace_7440c7c99d8a/cable_bills/02-2026.pdf/feb_2026_cable_bill.pdf'"
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.list_files",
+            "params": {
+                "query": "cable"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.list_files",
+            "result": [
+                {
+                    "file_id": "vf-cable-jan-2026",
+                    "name": "jan_2026_cable_bill.pdf",
+                    "path": "/home/alice/Downloads/tax_bills/jan_2026_cable_bill.pdf",
+                    "mime_type": "application/pdf",
+                    "content_text": "CityCable monthly statement. Billing month: January 2026. Service: cable. Total due: $84.12.",
+                    "bill_type": "cable",
+                    "billing_month": "January",
+                    "billing_year": 2026,
+                    "billing_period_start": "2026-01-01",
+                    "billing_period_end": "2026-01-31",
+                    "total_amount": 84.12,
+                    "created_at": "2026-04-28T19:00:30Z",
+                    "is_archive": false,
+                    "archive_entry_names": []
+                },
+                {
+                    "file_id": "vf-cable-feb-2026",
+                    "name": "feb_2026_cable_bill.pdf",
+                    "path": "/home/alice/Downloads/tax_bills/feb_2026_cable_bill.pdf",
+                    "mime_type": "application/pdf",
+                    "content_text": "CityCable monthly statement. Billing month: February 2026. Service: cable. Total due: $84.12.",
+                    "bill_type": "cable",
+                    "billing_month": "February",
+                    "billing_year": 2026,
+                    "billing_period_start": "2026-02-01",
+                    "billing_period_end": "2026-02-28",
+                    "total_amount": 84.12,
+                    "created_at": "2026-04-28T19:05:30Z",
+                    "is_archive": false,
+                    "archive_entry_names": []
+                }
+            ],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.create_zip_archive",
+            "params": {
+                "archive_name": "bills.zip",
+                "file_ids": "[\"vf-cable-jan-2026\", \"vf-cable-feb-2026\"]",
+                "rename_map": "{\"vf-cable-jan-2026\": \"01-2026.pdf\", \"vf-cable-feb-2026\": \"02-2026.pdf\"}"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.create_zip_archive",
+            "result": {
+                "status": "created",
+                "file_id": "file-4b42b8e2",
+                "name": "bills.zip",
+                "path": "/home/alex/archives/bills.zip",
+                "is_archive": true,
+                "archive_entry_names": [
+                    "01-2026.pdf",
+                    "02-2026.pdf"
+                ]
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "venmo_and_shared_expenses.reply_gmail_with_attachment",
+            "params": {
+                "message_id": "msg-tax-req-001",
+                "body": "PFA.",
+                "attachment_file_id": "file-4b42b8e2"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "venmo_and_shared_expenses.reply_gmail_with_attachment",
+            "result": {
+                "status": "sent",
+                "message_id": "msg-0f845695",
+                "thread_id": "thread-tax-cable-001"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Everything is done! Here's a full summary of what was accomplished:\n\n---\n\n### ✅ Task Complete\n\n**Email Thread Found:**\n- **Subject:** \"Need cable bills for tax purposes\"\n- **From:** matt@example.com (your husband)\n- **Thread ID:** `thread-tax-cable-001`\n\n**Cable Bill PDFs Gathered from the Thread:**\n| Original Filename | Billing Month | Renamed To |\n|---|---|---|\n| `jan_2026_cable_bill.pdf` | January 2026 | `01-2026.pdf` |\n| `feb_2026_cable_bill.pdf` | February 2026 | `02-2026.pdf` |\n\n**Archive Created:**\n- `bills.zip` — contains both PDFs renamed in `MM-YYYY.pdf` format as requested.\n\n**Reply Sent:**\n- Replied to Matt's email on thread `thread-tax-cable-001` with the note **\"PFA.\"** and `bills.zip` attached."
+        }
+    ]
+}

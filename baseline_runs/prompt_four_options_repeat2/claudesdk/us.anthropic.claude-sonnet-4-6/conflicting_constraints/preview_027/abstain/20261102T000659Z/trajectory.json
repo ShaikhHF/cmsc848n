@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "conflicting_constraints",
+    "task_id": "preview_027",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "For the Taipei birth details March 14, 1990 at 06:45, generate a chart strictly as a traditional Bazi Four Pillars chart, using timezone Asia/Taipei exclusively and using timezone UTC exclusively."
+        },
+        {
+            "type": "assistant",
+            "content": "Before I can generate the Bazi charts, I'm missing one required detail:\n\n- **Sex** — What is the sex of the person? (e.g., *male* or *female*)\n\nThis is needed for the traditional Bazi Four Pillars calculation (it affects the ten-year luck pillar direction). Please provide it and I'll immediately run both charts — one with **Asia/Taipei** and one with **UTC** — in parallel."
+        }
+    ]
+}

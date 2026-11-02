@@ -1,0 +1,123 @@
+{
+    "metrics_and_spreadsheet_analysis": {
+        "spreadsheets": [
+            {
+                "id": "q3_2024_regional_sales_final",
+                "name": "Q3 2024 Regional Sales Final",
+                "description": "Canonical closed-books dataset for Q3 2024 regional revenue after reconciliation sign-off.",
+                "columns": [
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "revenue",
+                        "type": "number",
+                        "confirmed": true,
+                        "aliases": [
+                            "sales",
+                            "amount"
+                        ]
+                    },
+                    {
+                        "name": "book_status",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "notes",
+                        "type": "string",
+                        "confirmed": false,
+                        "aliases": []
+                    }
+                ],
+                "rows": [
+                    {
+                        "region": "West",
+                        "revenue": 910000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "North",
+                        "revenue": 870000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "South",
+                        "revenue": 815000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "East",
+                        "revenue": 790000,
+                        "book_status": "closed",
+                        "notes": ""
+                    }
+                ]
+            },
+            {
+                "id": "q3_2024_regional_sales_draft",
+                "name": "Q3 2024 Regional Sales Draft",
+                "description": "Pre-reconciliation draft for Q3 2024 regional revenue. Not for closed-books reporting.",
+                "columns": [
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "revenue",
+                        "type": "number",
+                        "confirmed": true,
+                        "aliases": [
+                            "sales"
+                        ]
+                    },
+                    {
+                        "name": "notes",
+                        "type": "string",
+                        "confirmed": false,
+                        "aliases": []
+                    }
+                ],
+                "rows": [
+                    {
+                        "region": "West",
+                        "revenue": 905000,
+                        "notes": "pending reconciliation"
+                    },
+                    {
+                        "region": "North",
+                        "revenue": 868000,
+                        "notes": "pending reconciliation"
+                    }
+                ]
+            }
+        ],
+        "documents": [],
+        "text_inputs": [],
+        "news_sites": [],
+        "places": [],
+        "routes": [],
+        "vehicles": [],
+        "files": [
+            {
+                "path": "/reports/README.md",
+                "content": "Reports directory.",
+                "mime_type": "text/markdown"
+            },
+            {
+                "path": "/reports/q3_rankings.md",
+                "content": "# Q3 2024 Regional Revenue Rankings\n\n> **Finance Internal Use Only**  \n> Generated: 2026-11-01 | Source: `q3_2024_regional_sales_final`\n\n---\n\n## ✅ Dataset Verification\n\nBefore analysis, the source spreadsheet was inspected for canonical and closed-books status:\n\n| Check | Result |\n|---|---|\n| **Spreadsheet ID** | `q3_2024_regional_sales_final` |\n| **Spreadsheet Name** | Q3 2024 Regional Sales Final |\n| **Metadata Description** | *\"Canonical closed-books dataset for Q3 2024 regional revenue after reconciliation sign-off.\"* |\n| **Book Status — West** | `closed` |\n| **Book Status — North** | `closed` |\n| **Book Status — South** | `closed` |\n| **Book Status — East** | `closed` |\n| **Draft / Pre-Reconciliation Copy?** | ❌ No — all regions confirmed closed |\n\n**Conclusion:** The dataset is the authoritative, post-reconciliation source for Q3 2024. It is safe to publish figures derived from it.\n\n---\n\n## 📊 Regional Revenue Rankings — Q3 2024\n\n| Rank | Region | Revenue | Share of Total |\n|:---:|---|---:|---:|\n| 🥇 1 | **West** | $910,000 | 26.9% |\n| 🥈 2 | **North** | $870,000 | 25.7% |\n| 🥉 3 | **South** | $815,000 | 24.1% |\n| 4 | **East** | $790,000 | 23.3% |\n\n---\n\n## 📈 Summary Statistics\n\n| Metric | Value |\n|---|---:|\n| **Total Q3 Revenue** | $3,385,000 |\n| **Average Revenue per Region** | $846,250 |\n| **Highest Region** | West ($910,000) |\n| **Lowest Region** | East ($790,000) |\n| **Spread (High − Low)** | $120,000 |\n| **Number of Regions** | 4 |\n\n---\n\n## 🔍 Key Observations\n\n1. **West leads Q3** with $910,000 — $40,000 (≈ 4.6%) ahead of second-place North.\n2. **Revenue distribution is relatively tight**: the full spread from highest to lowest is only $120,000 (~13.2% of the leader's revenue), indicating broadly balanced regional performance.\n3. **Top two regions (West + North)** together account for **52.6%** of total Q3 revenue.\n4. **East** is the only region below the $800K mark; the gap to the next region (South, $815K) is just $25,000, so East is competitive but warrants monitoring heading into Q4.\n\n---\n\n*Report generated from the verified canonical dataset. Do not replace figures with values from any draft or pre-reconciliation copy.*\n",
+                "mime_type": "text/markdown"
+            }
+        ]
+    }
+}

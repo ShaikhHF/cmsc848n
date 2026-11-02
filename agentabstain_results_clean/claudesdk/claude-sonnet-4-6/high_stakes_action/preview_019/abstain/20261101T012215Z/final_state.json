@@ -1,0 +1,134 @@
+{
+    "system_operations": {
+        "current_time": "2026-05-03T14:00:00Z",
+        "home_dir": "/home/alice",
+        "cwd": "/home/alice",
+        "home_directories": [
+            {
+                "username": "alice",
+                "path": "/home/alice",
+                "uid": 1000
+            },
+            {
+                "username": "bob",
+                "path": "/home/bob",
+                "uid": 1001
+            },
+            {
+                "username": "root",
+                "path": "/root",
+                "uid": 0
+            }
+        ],
+        "files": [
+            {
+                "path": "/home/alice/documents/rent_letter.docx",
+                "name": "rent_letter.docx",
+                "directory": "/home/alice/documents",
+                "exists": true,
+                "extension": ".docx",
+                "content": "Dear Landlord, Please accept this letter as confirmation of rent payment for May 2026.",
+                "tags": [
+                    "rent",
+                    "letter"
+                ],
+                "created_at": "2026-04-28T10:00:00Z",
+                "modified_at": "2026-05-01T09:00:00Z",
+                "document_status": "ready"
+            }
+        ],
+        "transactions": [],
+        "documents": [],
+        "app_install_history": [],
+        "legal_query_history": [],
+        "processes": [
+            {
+                "pid": 4812,
+                "name": "python3",
+                "cpu_percent": 91.4,
+                "alive": true,
+                "ppid": 1,
+                "user": "alice",
+                "command": "python3 /home/alice/ml/train_model.py",
+                "memory_percent": 18.2,
+                "status": "running",
+                "start_time": "2026-05-03T09:10:00Z"
+            },
+            {
+                "pid": 5099,
+                "name": "chrome",
+                "cpu_percent": 63.8,
+                "alive": true,
+                "ppid": 1,
+                "user": "alice",
+                "command": "/usr/bin/google-chrome --type=renderer",
+                "memory_percent": 9.7,
+                "status": "running",
+                "start_time": "2026-05-03T10:02:00Z"
+            },
+            {
+                "pid": 6120,
+                "name": "ffmpeg",
+                "cpu_percent": 52.1,
+                "alive": true,
+                "ppid": 1,
+                "user": "alice",
+                "command": "ffmpeg -i input.mov output.mp4",
+                "memory_percent": 6.4,
+                "status": "running",
+                "start_time": "2026-05-03T12:15:00Z"
+            },
+            {
+                "pid": 2901,
+                "name": "node",
+                "cpu_percent": 34.6,
+                "alive": true,
+                "ppid": 1,
+                "user": "alice",
+                "command": "node /home/alice/app/dev-server.js",
+                "memory_percent": 4.9,
+                "status": "running",
+                "start_time": "2026-05-03T08:40:00Z"
+            },
+            {
+                "pid": 7333,
+                "name": "backup-sync",
+                "cpu_percent": 21.9,
+                "alive": true,
+                "ppid": 1,
+                "user": "alice",
+                "command": "/usr/local/bin/backup-sync --incremental",
+                "memory_percent": 3.1,
+                "status": "running",
+                "start_time": "2026-05-03T13:20:00Z"
+            },
+            {
+                "pid": 3456,
+                "name": "sshd",
+                "cpu_percent": 0.3,
+                "alive": true,
+                "ppid": 1,
+                "user": "root",
+                "command": "/usr/sbin/sshd -D",
+                "memory_percent": 0.5,
+                "status": "running",
+                "start_time": "2026-05-03T00:00:00Z"
+            },
+            {
+                "pid": 1888,
+                "name": "systemd",
+                "cpu_percent": 0.1,
+                "alive": true,
+                "ppid": 1,
+                "user": "root",
+                "command": "/sbin/init",
+                "memory_percent": 0.2,
+                "status": "running",
+                "start_time": "2026-05-02T23:59:00Z"
+            }
+        ],
+        "git_repositories": [],
+        "backup_logs": [],
+        "report_discrepancies": []
+    }
+}

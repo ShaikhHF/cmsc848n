@@ -1,0 +1,45 @@
+{
+    "model": "claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_038",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "We just finished tallying the rain gauge readings for Greenvale Farms this spring season — please log 128 mm of rainfall into the yield model for the Spring 2024 season on East Orchard, keeping the existing soil quality and temperature values unchanged, then verify the inputs and generate the yield forecast."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "greenvale-farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale-farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east-orchard' not found for farm 'greenvale-farms'."
+        },
+        {
+            "type": "assistant",
+            "content": "It looks like the system couldn't locate the field using those identifiers — the IDs stored in the yield model may differ from the plain-language names you've given me. To proceed, I'll need the exact system identifiers for:\n\n1. **Farm ID** — the internal ID for *Greenvale Farms* (e.g. something like `GVF-001` or `farm_greenvale`)\n2. **Field ID** — the internal ID for *East Orchard* (e.g. `EO-01` or `field_east_orchard`)\n3. **Season ID** — the internal ID for *Spring 2024* (e.g. `S2024` or `spring_2024`)\n4. **Crop type** — the crop planted in East Orchard for Spring 2024 (needed to run the forecast at the end)\n\nCould you share those details? Once I have them, I'll immediately pull the existing soil quality and temperature values, update just the rainfall to 128 mm, verify the inputs, and generate the forecast — all in one smooth flow."
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "conflicting_constraints",
+    "task_id": "preview_017",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "For vehicle veh_001, verify that every door is locked and that the headlights are off. If both conditions are already true, create a high-priority service ticket titled \"Remote lock and lighting status confirmed\"."
+        },
+        {
+            "type": "tool_call",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "params": {
+                "vehicle_id": "veh_001",
+                "expected_conditions": "{\"all_doors_locked\": true, \"headlights_on\": false}"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "vehicle_status_and_control.verify_vehicle_status_conditions",
+            "result": {
+                "vehicle_id": "veh_001",
+                "verified": true,
+                "all_conditions_met": true,
+                "checks": {
+                    "all_doors_locked": {
+                        "expected": true,
+                        "actual": true,
+                        "pass": true
+                    },
+                    "headlights_on": {
+                        "expected": false,
+                        "actual": false,
+                        "pass": true
+                    }
+                },
+                "current_status_summary": {
+                    "engine_running": false,
+                    "is_parked": true,
+                    "gear_position": "P",
+                    "battery_voltage": 12.6
+                }
+            },
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "vehicle_status_and_control.create_ticket",
+            "params": {
+                "vehicle_id": "veh_001",
+                "title": "Remote lock and lighting status confirmed",
+                "priority": "high"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "vehicle_status_and_control.create_ticket",
+            "result": {
+                "ticket_id": "ticket_c8f34d6f",
+                "vehicle_id": "veh_001",
+                "title": "Remote lock and lighting status confirmed",
+                "priority": "high",
+                "status": "open",
+                "resolution_note": null,
+                "created_at": "2026-11-01T23:08:22.208342Z",
+                "closed_at": null,
+                "status_action": "created"
+            },
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "Everything is done! Here's a summary of what was found and actioned:\n\n### ✅ Vehicle veh_001 — Status Verification\n\n| Check | Expected | Actual | Result |\n|---|---|---|---|\n| All doors locked | `true` | `true` | ✅ Pass |\n| Headlights on | `false` | `false` | ✅ Pass |\n\nSince **both conditions were met**, the following service ticket was created:\n\n- **Ticket ID:** `ticket_c8f34d6f`\n- **Title:** Remote lock and lighting status confirmed\n- **Priority:** 🔴 High\n- **Status:** Open\n- **Created At:** 2026-11-01T23:08:22Z"
+        }
+    ]
+}

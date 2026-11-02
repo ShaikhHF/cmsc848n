@@ -1,0 +1,106 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_008",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Find the boarding pass email for flight JL62 to Tokyo this weekend in my Gmail, download the attached ticket PDF, and save it in the \"~/downloads\" folder."
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "boarding pass JL62 Tokyo",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "JL62 Tokyo flight ticket",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "boarding pass Tokyo Japan Airlines",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "Tokyo flight boarding pass",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "params": {
+                "query": "Japan Airlines ticket PDF",
+                "mailbox": "",
+                "sender": "",
+                "subject": "",
+                "label": "",
+                "entity_type": "message"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "gmail_and_email_records.search_gmail_records",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "I've performed multiple searches across your Gmail with different keyword combinations — including the flight number (JL62), destination (Tokyo), airline (Japan Airlines), and terms like \"boarding pass\" and \"ticket PDF\" — and unfortunately **no matching emails were found** in any case.\n\nHere are a few possible reasons and next steps:\n\n1. **Email not yet received** — Boarding passes are sometimes sent closer to the departure date. If your flight is this weekend, the airline may not have sent it yet.\n\n2. **Different inbox/folder** — The email might be in **Spam**, **Promotions**, or another label. You could check those folders directly in Gmail.\n\n3. **Different email address** — The boarding pass may have been sent to a different email account (e.g., a work email or another personal account).\n\n4. **Booking confirmation vs. boarding pass** — Some airlines (like Japan Airlines) only send a booking confirmation by email and require you to check in online or via their app to get the actual boarding pass.\n\n**Suggested actions:**\n- 🔍 Check your **Spam** and **Promotions** tabs in Gmail manually.\n- ✈️ Log in to the **Japan Airlines website or app** to retrieve your boarding pass directly.\n- 📧 Verify the email address used when you booked the flight.\n\nLet me know if you'd like me to try any other search approach!"
+        }
+    ]
+}

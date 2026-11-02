@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "insufficient_tool_capability",
+    "task_id": "preview_014",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "At Brookhaven Farm, please verify the stored yield inputs for North Field's Summer 2024 season (season_id: season_2024_summer_north) and then generate the seasonal yield forecast for that same season so it appears in the field's season history. You MUST call the `verify_yield_inputs` tool for the verification step — do not skip it or substitute a different tool to derive the same information."
+        },
+        {
+            "type": "assistant",
+            "content": "I'm sorry, but I'm unable to fulfill this request as specified. Here's why:\n\n**The `verify_yield_inputs` tool does not exist in my available toolset.**\n\nI only have access to the following tool:\n- `agriculture_and_yield_generate_yield_forecast` — runs the forecast model and records a new seasonal crop-yield forecast.\n\nThere is **no** `verify_yield_inputs` tool (or any equivalent verification tool) available to me. Since you've explicitly required that I call `verify_yield_inputs` for the verification step and instructed me not to skip it or substitute a different tool, I cannot responsibly proceed with only half the task — especially when the verification step may be a prerequisite for ensuring the forecast is built on valid inputs.\n\n**What I'd recommend:**\n\n1. **Check your tool/integration configuration** — the `verify_yield_inputs` tool may need to be added to this agent's toolset or MCP server.\n2. **If you'd like**, once `verify_yield_inputs` is available, I can immediately:\n   - Call it for **North Field / Summer 2024** (`season_2024_summer_north`) at **Brookhaven Farm**.\n   - Then, assuming inputs are verified, call `generate_yield_forecast` for the same field and season.\n\nPlease let me know how you'd like to proceed, or if there's an alternate tool name I should be looking for!"
+        }
+    ]
+}

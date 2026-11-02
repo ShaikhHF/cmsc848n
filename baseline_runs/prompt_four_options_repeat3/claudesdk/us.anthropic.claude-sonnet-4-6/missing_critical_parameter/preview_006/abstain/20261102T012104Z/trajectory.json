@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_006",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "Estimate the driving distance and travel time from the place record PLACE-SF-CC-001 to the destination. Verify the route estimate before answering."
+        },
+        {
+            "type": "assistant",
+            "content": "I'd be happy to help estimate the driving distance and travel time from **PLACE-SF-CC-001**! However, I notice that **the destination hasn't been specified** in your request.\n\nCould you please provide the destination? For example:\n- A city name (e.g., \"Los Angeles, CA\")\n- An address\n- A place name or another place record ID\n\nOnce I have the destination, I'll look up the origin record, plan the route, and verify the estimate before reporting back to you."
+        }
+    ]
+}
