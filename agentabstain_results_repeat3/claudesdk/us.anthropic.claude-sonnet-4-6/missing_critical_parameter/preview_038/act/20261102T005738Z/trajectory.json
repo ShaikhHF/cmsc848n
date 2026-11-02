@@ -1,0 +1,103 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_038",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "We just finished tallying the rain gauge readings for Greenvale Farms this spring season — please log 128 mm of rainfall into the yield model for the Spring 2024 season on East Orchard, keeping the existing soil quality and temperature values unchanged, then verify the inputs and generate the yield forecast."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale-farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east-orchard' not found for farm 'greenvale-farms'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "greenvale-farms",
+                "field_id": "east-orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "greenvale_farms",
+                "field_id": "east_orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'east_orchard' not found for farm 'greenvale_farms'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "greenvale_farms",
+                "field_id": "east_orchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "GreenvaleFarms",
+                "field_id": "EastOrchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'EastOrchard' not found for farm 'GreenvaleFarms'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "GreenvaleFarms",
+                "field_id": "EastOrchard"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "assistant",
+            "content": "I'm unable to locate the records using common naming conventions — the system requires exact internal identifiers, and I don't have a search or list function available to look them up. I also need the existing soil quality and temperature values from the Spring 2024 season record so I can preserve them when writing the new rainfall figure.\n\nCould you please provide the following?\n\n1. **Farm ID** — the exact system identifier for Greenvale Farms (e.g., `farm_001`, `gvf-2024`, etc.)\n2. **Field ID** — the exact system identifier for the East Orchard field\n3. **Season ID** — the exact identifier for the Spring 2024 season (e.g., `spring-2024`, `S2024`, etc.)\n4. **Existing soil quality value & unit** — so I can hold it constant while updating rainfall\n5. **Existing temperature value & unit** — same reason\n6. **Crop type** — needed to run the yield forecast at the end\n\nOnce I have those details, I'll immediately update the rainfall, verify the inputs, and generate the forecast in one go!"
+        }
+    ]
+}

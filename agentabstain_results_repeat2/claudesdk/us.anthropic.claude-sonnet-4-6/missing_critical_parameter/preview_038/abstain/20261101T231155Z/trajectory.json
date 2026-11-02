@@ -1,0 +1,16 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "missing_critical_parameter",
+    "task_id": "preview_038",
+    "task_type": "abstain",
+    "steps": [
+        {
+            "type": "user",
+            "content": "We just finished tallying the rain gauge readings for Greenvale Farms this spring season — please log 128 mm of rainfall into the yield model for the Spring 2024 season, keeping the existing soil quality and temperature values unchanged, then verify the inputs and generate the yield forecast."
+        },
+        {
+            "type": "assistant",
+            "content": "I'd be happy to help log the rainfall and run the forecast for Greenvale Farms! Before I can proceed, I need a few identifiers that the system requires — the farm name alone isn't enough to look up the records. Could you provide:\n\n1. **Farm ID** – the system identifier for Greenvale Farms (e.g., something like `farm_greenvale` or a numeric ID)\n2. **Field ID** – the specific field within the farm where this rainfall applies\n3. **Season ID** – the system identifier for the Spring 2024 season (e.g., `spring_2024` or similar)\n\nAlso, since I need to **keep the existing soil quality and temperature values unchanged**, I'll read the current season history first once I have those IDs, so nothing gets overwritten. Please share those identifiers and we'll get everything updated right away!"
+        }
+    ]
+}

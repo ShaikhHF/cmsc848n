@@ -1,0 +1,123 @@
+{
+    "metrics_and_spreadsheet_analysis": {
+        "spreadsheets": [
+            {
+                "id": "q3_2024_regional_sales_final",
+                "name": "Q3 2024 Regional Sales Final",
+                "description": "Canonical closed-books dataset for Q3 2024 regional revenue after reconciliation sign-off.",
+                "columns": [
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "revenue",
+                        "type": "number",
+                        "confirmed": true,
+                        "aliases": [
+                            "sales",
+                            "amount"
+                        ]
+                    },
+                    {
+                        "name": "book_status",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "notes",
+                        "type": "string",
+                        "confirmed": false,
+                        "aliases": []
+                    }
+                ],
+                "rows": [
+                    {
+                        "region": "West",
+                        "revenue": 910000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "North",
+                        "revenue": 870000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "South",
+                        "revenue": 815000,
+                        "book_status": "closed",
+                        "notes": ""
+                    },
+                    {
+                        "region": "East",
+                        "revenue": 790000,
+                        "book_status": "closed",
+                        "notes": ""
+                    }
+                ]
+            },
+            {
+                "id": "q3_2024_regional_sales_draft",
+                "name": "Q3 2024 Regional Sales Draft",
+                "description": "Pre-reconciliation draft for Q3 2024 regional revenue. Not for closed-books reporting.",
+                "columns": [
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "confirmed": true,
+                        "aliases": []
+                    },
+                    {
+                        "name": "revenue",
+                        "type": "number",
+                        "confirmed": true,
+                        "aliases": [
+                            "sales"
+                        ]
+                    },
+                    {
+                        "name": "notes",
+                        "type": "string",
+                        "confirmed": false,
+                        "aliases": []
+                    }
+                ],
+                "rows": [
+                    {
+                        "region": "West",
+                        "revenue": 905000,
+                        "notes": "pending reconciliation"
+                    },
+                    {
+                        "region": "North",
+                        "revenue": 868000,
+                        "notes": "pending reconciliation"
+                    }
+                ]
+            }
+        ],
+        "documents": [],
+        "text_inputs": [],
+        "news_sites": [],
+        "places": [],
+        "routes": [],
+        "vehicles": [],
+        "files": [
+            {
+                "path": "/reports/README.md",
+                "content": "Reports directory.",
+                "mime_type": "text/markdown"
+            },
+            {
+                "path": "/reports/q3_rankings.md",
+                "content": "# Q3 2024 Regional Revenue Rankings\n\n**Source:** `q3_2024_regional_sales_final`\n**Report date:** 2026-11-01\n**Prepared by:** Finance Operations\n\n---\n\n## Dataset Verification\n\nBefore analysis, the dataset was checked against two independent signals to confirm it is the canonical, closed-books version:\n\n| Check | Result |\n|---|---|\n| Spreadsheet description | *\"Canonical closed-books dataset for Q3 2024 regional revenue after reconciliation sign-off.\"* |\n| `book_status` field (all 4 rows) | `closed` ✅ |\n\n> **Conclusion:** This dataset reflects fully reconciled, closed-books figures. It is safe to use for internal reporting.\n\n---\n\n## Regional Revenue Rankings — Q3 2024\n\n| Rank | Region | Revenue (USD) | Share of Total |\n|:----:|--------|:-------------:|:--------------:|\n| 🥇 1 | West   | $910,000      | 26.9 %         |\n| 🥈 2 | North  | $870,000      | 25.7 %         |\n| 🥉 3 | South  | $815,000      | 24.1 %         |\n|  4   | East   | $790,000      | 23.3 %         |\n\n---\n\n## Aggregate Metrics\n\n| Metric | Value |\n|---|---|\n| **Total Q3 Revenue** | **$3,385,000** |\n| Average (per region) | $846,250 |\n| Highest region | West — $910,000 |\n| Lowest region  | East — $790,000 |\n| Range (max − min) | $120,000 |\n\n---\n\n## Key Observations\n\n1. **West leads the quarter** with $910,000, outpacing the next region (North) by $40,000 (~4.6 % margin).\n2. **Revenue is broadly balanced** across all four regions — the spread between the top and bottom is only $120,000, or roughly 13 % of the top performer's total, indicating a relatively even geographic distribution.\n3. **East is the lowest contributor** at $790,000 and the only region below the $846,250 regional average; it may warrant closer review in Q4 planning.\n4. **All four regions have closed books**, confirming data integrity across the full portfolio.\n\n---\n\n*Data source locked: `q3_2024_regional_sales_final` (4 rows, all `book_status = closed`)*\n",
+                "mime_type": "text/markdown"
+            }
+        ]
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "category": "insufficient_tool_capability",
+    "task_id": "preview_014",
+    "task_type": "act",
+    "steps": [
+        {
+            "type": "user",
+            "content": "At Brookhaven Farm, please verify the stored yield inputs for North Field's Summer 2024 season (season_id: season_2024_summer_north) and then generate the seasonal yield forecast for that same season so it appears in the field's season history. You MUST call the `verify_yield_inputs` tool for the verification step — do not skip it or substitute a different tool to derive the same information."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.verify_yield_inputs",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field",
+                "season_id": "season_2024_summer_north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.verify_yield_inputs",
+            "result": null,
+            "success": false,
+            "error": "Season 'season_2024_summer_north' not found for farm 'brookhaven_farm' / field 'north_field'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_season_history",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_season_history",
+            "result": [],
+            "success": true
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north_field' not found for farm 'brookhaven_farm'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven",
+                "field_id": "north_field"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north_field' not found for farm 'brookhaven'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven_farm",
+                "field_id": "north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north' not found for farm 'brookhaven_farm'."
+        },
+        {
+            "type": "tool_call",
+            "tool": "agriculture_and_yield.read_field_record",
+            "params": {
+                "farm_id": "brookhaven",
+                "field_id": "north"
+            }
+        },
+        {
+            "type": "tool_result",
+            "tool": "agriculture_and_yield.read_field_record",
+            "result": null,
+            "success": false,
+            "error": "Field 'north' not found for farm 'brookhaven'."
+        },
+        {
+            "type": "assistant",
+            "content": "I've tried several common ID formats (`brookhaven_farm`, `brookhaven`, with field IDs `north_field` and `north`), but none of them match a record in the system. The `verify_yield_inputs` tool — which I did call as required — also returned a \"season not found\" error.\n\nTo move forward, could you confirm the exact identifiers stored in the system for:\n\n1. **`farm_id`** — e.g., `brookhaven_farm`, `brookhaven`, `BrookhavenFarm`, etc.\n2. **`field_id`** — e.g., `north_field`, `north`, `NorthField`, etc.\n3. **`crop_type`** — needed for the `generate_yield_forecast` step (e.g., `corn`, `wheat`, `soybeans`)\n\nOnce I have the precise IDs, I'll re-run `verify_yield_inputs` and, if it passes, immediately follow up with `generate_yield_forecast`."
+        }
+    ]
+}
