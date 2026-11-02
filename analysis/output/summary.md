@@ -1,22 +1,42 @@
 # Cost-weighted scoring: claude-sonnet-4-6
 
-Graded runs: **64** (32 should-act, 32 should-abstain); 0 pair sides have only crashed runs (API errors) and are excluded.
+This file scores one run per task version, from `agentabstain_results_clean`.
 
-Costs: mistake = 10, abstain = 3, mistake without a state-changing tool = 5. Mean cost is balanced across should-act and should-abstain sides. 95% intervals from 5000 bootstrap resamples of runs within each side.
+## All three runs
+
+| Policy | Paired, runs 1/2/3 | Mean paired (95% CI) | Cost, runs 1/2/3 | Mean cost (95% CI) |
+|---|---|---:|---|---:|
+| Agent | 20 / 17 / 18 | 18.3 (13.0–23.3) | 1.44 / 1.81 / 1.62 | 1.62 (0.92–2.41) |
+| Prompt-only | 17 / 18 / 19 | 18.0 (12.7–23.0) | 1.55 / 1.42 / 1.52 | 1.49 (0.86–2.19) |
+| Threshold, cutoffs from run 1 | 22 / 20 / 19 | 20.3 (15.0–25.3) | 1.20 / 1.34 / 1.39 | 1.31 (0.64–2.08) |
+| Threshold, re-tuned each run | 22 / 10 / 9 | 13.7 (9.3–18.0) | 1.20 / 1.66 / 1.70 | 1.52 (0.94–2.15) |
+| Threshold, keeps agent's pairs | 20.0 / 18.2 / 17.8 | 18.7 (11.6–23.8) | 1.28 / 1.50 / 1.43 | 1.40 (0.83–2.16) |
+| Always abstain | 0 / 0 / 0 | 0.0 (0.0–0.0) | 1.50 / 1.50 / 1.50 | 1.50 (1.50–1.50) |
+| Always act | 0 / 0 / 0 | 0.0 (0.0–0.0) | 4.22 / 4.22 / 4.22 | 4.22 (3.83–4.61) |
+
+"Threshold, keeps agent's pairs" is exploratory: one cutoff for all categories, the cheapest that gets at least as many pairs right as the plain agent. It was written after seeing these pairs. Each cutoff is chosen on half the pairs in one run and scored on the other half in another run, so its run values are averages over many splits.
+
+Results change from run to run, so use these numbers rather than the one-run table below. Figures and details are in [three_runs/summary.md](three_runs/summary.md).
+
+## This run
+
+Graded runs: **64** (32 should-act, 32 should-abstain); 0 pair sides have only crashed or ungraded runs and are excluded.
+
+Costs: mistake = 10, abstain = 3, mistake without a state-changing tool = 5. Mean cost is balanced across should-act and should-abstain sides. 95% intervals from 5000 bootstrap resamples of pairs.
 
 | Policy | Mean cost (95% CI) | Act pass | Abstain pass | Paired | Premature commits | Unflagged answers | Unnecessary abstains | Incomplete acts |
 |---|---|---|---|---|---:|---:|---:|---:|
-| agent | 1.44 (0.72–2.17) | 28/32 | 23/32 | 20/32 | 7 | 2 | 3 | 1 |
+| agent | 1.44 (0.73–2.20) | 28/32 | 23/32 | 20/32 | 7 | 2 | 3 | 1 |
 | always-act | 4.22 (3.83–4.61) | 32/32 | 0/32 | 0/32 | 22 | 10 | 0 | 0 |
 | always-abstain | 1.50 (1.50–1.50) | 0/32 | 32/32 | 0/32 | 0 | 0 | 32 | 0 |
-| Prompt-only (4 options) | 1.55 (0.83–2.30) | 24/32 | 23/32 | 17/32 | 6 | 3 | 5 | 3 |
-| confidence-threshold | 1.20 (0.53–1.91) | 28/32 | 25/32 | 22/32 | 6 | 1 | 3 | 1 |
+| Prompt-only (4 options) | 1.55 (0.86–2.30) | 24/32 | 23/32 | 17/32 | 6 | 3 | 5 | 3 |
+| confidence-threshold | 1.20 (0.53–1.97) | 28/32 | 25/32 | 22/32 | 6 | 1 | 3 | 1 |
 
 Agent minus baseline, mean cost (negative = agent cheaper):
 
-- vs always-act: -2.78 (95% CI -3.52 to -2.08)
-- vs always-abstain: -0.06 (95% CI -0.78 to +0.67)
-- vs Prompt-only (4 options): -0.11 (95% CI -0.45 to +0.31)
+- vs always-act: -2.78 (95% CI -3.45 to -2.08)
+- vs always-abstain: -0.06 (95% CI -0.77 to +0.70)
+- vs Prompt-only (4 options): -0.11 (95% CI -0.45 to +0.33)
 - vs confidence-threshold: +0.23 (95% CI +0.00 to +0.62)
 
 ## Cost sweep
